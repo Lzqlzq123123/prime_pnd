@@ -1,0 +1,10 @@
+# Mesh files are managed by Hugging Face (pndbotics/pnd_models_teleop).
+# Download with:  pteleop download get adam_u
+#            or:  pteleop download get --all
+
+*.stl
+*.STL
+*.dae
+*.DAE
+*.obj
+*.OBJ

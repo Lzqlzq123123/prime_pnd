@@ -1,0 +1,18 @@
+build
+install
+log
+release
+rosbag2_*
+home
+**/__pycache__
+.vscode
+
+# Ignore mujoco related files logs
+MUJOCO_LOG.TXT
+
+# python
+.venv
+
+node_modules
+.DS_Store
+.idea
