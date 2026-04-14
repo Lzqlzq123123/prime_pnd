@@ -27,8 +27,7 @@ Or from a local file:
 Then run:
 
 ```sh
-cd /opt/pnd/pnd_teleop
-source setup_cli.bash
+source /opt/pnd/pnd_teleop/setup_cli.bash
 spteleop teleop adam_u webvr mink
 ```
 

@@ -196,7 +196,6 @@ echo -e "${GREEN}pnd-teleop${NC}${VERSION:+ ${DIM}v${VERSION}${NC}} installed su
 echo ""
 echo -e "To get started, run:"
 echo ""
-echo -e "  ${BOLD}cd ${INSTALL_DIR}${NC}"
-echo -e "  ${BOLD}source setup_cli.bash${NC}"
+echo -e "  ${BOLD}source ${INSTALL_DIR}/setup_cli.bash${NC}"
 echo -e "  ${BOLD}spteleop teleop adam_u webvr mink${NC}"
 echo ""
