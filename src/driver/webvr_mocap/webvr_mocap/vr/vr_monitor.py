@@ -12,10 +12,7 @@ import ssl
 import sys
 import threading
 
-# Set the absolute path to the xlevr folder
-XLEVR_PATH = (
-    "/Users/weisongchao/Documents/pnd/webvr/pnd-retarget/src/driver/webvr_mocap/webvr_mocap/vr"
-)
+XLEVR_PATH = os.path.dirname(os.path.abspath(__file__))
 
 
 def setup_xlevr_environment():

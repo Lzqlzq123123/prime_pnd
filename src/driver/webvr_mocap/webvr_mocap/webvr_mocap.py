@@ -1,7 +1,6 @@
 import asyncio
 import os
 from dataclasses import dataclass, field
-from pathlib import Path
 from threading import Thread
 
 import rclpy
@@ -89,39 +88,11 @@ class WebVRMocap(Node):
             data.append(t)
         return data
 
-    def get_workspace_root(self) -> str:
-        """Get workspace root directory.
-
-        Returns:
-            Workspace root path as string, or empty string on error.
-        """
-        try:
-            from ament_index_python.packages import get_package_share_directory
-
-            package_share_dir = get_package_share_directory("webvr_mocap")
-            workspace_root = Path(package_share_dir).parent.parent.parent.parent
-            return str(workspace_root)
-        except (ImportError, KeyError, ValueError) as e:
-            self.get_logger().error(
-                f"Unable to get workspace root directory from package share directory: {e}"
-            )
-            return ""
-
     def start_vr_monitor(self) -> None:
         """Start the VR monitor in a separate thread."""
-        workspace_root = self.get_workspace_root()
-        if not workspace_root:
-            self.get_logger().error("Cannot start VR monitor: workspace root not found")
-            return
+        import webvr_mocap.vr.vr_monitor as _vr_mod
 
-        webvr_mocap_src_path = os.path.join(
-            workspace_root,
-            "src",
-            "driver",
-            "webvr_mocap",
-            "webvr_mocap",
-            "vr",
-        )
+        webvr_mocap_src_path = os.path.dirname(os.path.abspath(_vr_mod.__file__))
         self.get_logger().info(f"VR source path: {webvr_mocap_src_path}")
 
         try:
