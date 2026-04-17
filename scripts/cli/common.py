@@ -58,13 +58,13 @@ def _deactivate_conda_shell() -> str:
     """
     return (
         'if [ -n "${CONDA_EXE:-}" ] && type conda &>/dev/null; then '
-        "while [ -n \"${CONDA_DEFAULT_ENV:-}\" ] && [ \"${CONDA_DEFAULT_ENV}\" != \"\" ]; do "
+        'while [ -n "${CONDA_DEFAULT_ENV:-}" ] && [ "${CONDA_DEFAULT_ENV}" != "" ]; do '
         "conda deactivate 2>/dev/null || break; "
         "done; "
         "fi; "
         'export PATH=$(echo "$PATH" | tr ":" "\\n" | grep -v -E "(conda|anaconda|miniconda|miniforge)" | tr "\\n" ":"); '
         'export PATH="${PATH%:}"; '
-        'unset CONDA_DEFAULT_ENV CONDA_PREFIX CONDA_PROMPT_MODIFIER CONDA_SHLVL CONDA_PYTHON_EXE; '
+        "unset CONDA_DEFAULT_ENV CONDA_PREFIX CONDA_PROMPT_MODIFIER CONDA_SHLVL CONDA_PYTHON_EXE; "
     )
 
 
@@ -86,11 +86,7 @@ def _venv_site_packages_cmd() -> str:
     if not venv_sp.is_dir():
         return "true"
     sp_dir = venv_sp / ROS_PYTHON_VERSION / "site-packages"
-    return (
-        f'if [ -d "{sp_dir}" ]; then '
-        f'export PYTHONPATH="{sp_dir}:${{PYTHONPATH:-}}"; '
-        "fi; "
-    )
+    return f'if [ -d "{sp_dir}" ]; then export PYTHONPATH="{sp_dir}:${{PYTHONPATH:-}}"; fi; '
 
 
 def run_launch_shell(launch_cmd: str) -> int:

@@ -45,8 +45,13 @@ def main(
     ctx: typer.Context,
     version: Annotated[
         bool | None,
-        typer.Option("--version", "-V", callback=_version_callback, is_eager=True,
-                     help="Show version and exit."),
+        typer.Option(
+            "--version",
+            "-V",
+            callback=_version_callback,
+            is_eager=True,
+            help="Show version and exit.",
+        ),
     ] = None,
 ) -> None:
     """If no subcommand is given, start teleop with defaults."""

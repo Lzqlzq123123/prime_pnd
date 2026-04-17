@@ -24,7 +24,9 @@ def _check_ros_environment() -> None:
                 "Re-install or run: spteleop self-update"
             )
         else:
-            echo_error("Missing install/setup.bash. Please build the workspace first. run ./build.sh")
+            echo_error(
+                "Missing install/setup.bash. Please build the workspace first. run ./build.sh"
+            )
         raise typer.Exit(1)
     venv_activate = PROJECT_ROOT / ".venv" / "bin" / "activate"
     if not venv_activate.is_file():
