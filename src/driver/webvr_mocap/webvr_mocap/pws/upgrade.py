@@ -129,7 +129,10 @@ def setup_jetson():
 
     nuc_to_jetson = check_nuc_to_jetson_connection(host=JETSON_HOST)
     if not nuc_to_jetson:
-        logger.error(f"NUC 无法连接 Jetson {JETSON_HOST}, 请检查网络或 Jetson 是否在线")
+        logger.warning(
+            f"NUC 无法连接或鉴权 Jetson {JETSON_HOST}, "
+            f"请检查网络是否在线, 或 SSH 密钥是否配置 (pteleop setup ssh)"
+        )
         return False
 
     local_network_connection = check_local_network_connection()
@@ -185,7 +188,7 @@ def upgrade_jetson():
         if setup_jetson():
             logger.info("Jetson包setup成功")
         else:
-            logger.error("Jetson包setup失败")
+            logger.warning("Jetson包setup失败")
             stop_remote_service()
             # sys.exit(1)
     except KeyboardInterrupt:
