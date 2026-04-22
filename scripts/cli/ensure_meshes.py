@@ -132,7 +132,6 @@ def _download_variant(variant: str, dest: Path, revision: str = "main") -> bool:
                 allow_patterns=[f"{variant}/**"],
                 revision=revision,
             )
-            echo_success(f"Meshes for {variant} downloaded to {dest / variant}")
             return True
         except Exception as e:
             last_err = e
@@ -204,6 +203,11 @@ def ensure_meshes(
     for d in to_download:
         if not _download_variant(d, dest, revision=revision):
             all_ok = False
+            
+    missing = _get_missing_meshes(adam_type, dest)
+    if missing:
+        echo_error(f"Failed to download meshs. {len(missing)} mesh files missing for {adam_type}.")
+        return False
 
     _sync_all_variants(adam_type, dest)
     return all_ok

@@ -79,6 +79,7 @@ def teleop(
 
     if not ensure_meshes(adam_type):
         echo_warning("Mesh download failed; launch may fail if meshes are missing.")
+        raise typer.Exit(1)
 
     if with_preview:
         _start_preview_background()
