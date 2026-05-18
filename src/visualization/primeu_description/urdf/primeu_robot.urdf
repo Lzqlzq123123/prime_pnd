@@ -1,0 +1,975 @@
+<?xml version="1.0" ?>
+<!-- Generated using onshape-to-robot -->
+<!-- Onshape https://cad.onshape.com/documents/e95d3c063e2b7f45272d3fcb/w/c59c777708add0ad5bdf1ca3/e/2eea157a8505fef62e822018 -->
+<robot name="primeu_robot">
+  <!-- Link body_base_link -->
+  <link name="body_base_link">
+    <inertial>
+      <origin xyz="-4.20726e-05 -9.03729e-06 0.422113" rpy="0 0 0"/>
+      <mass value="76.8996"/>
+      <inertia ixx="8.30255" ixy="-0.000118077" ixz="-0.000419172" iyy="7.32437" iyz="-0.000193969" izz="2.45005"/>
+    </inertial>
+    <!-- Part body_base_link_parts -->
+    <visual>
+      <origin xyz="-4.20726e-05 -9.03729e-06 0.422113" rpy="0 -0 0"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/body_base_link_visual.stl"/>
+      </geometry>
+      <material name="body_base_link_parts_material">
+        <color rgba="0.623029 0.814339 0.929126 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-4.20726e-05 -9.03729e-06 0.422113" rpy="0 -0 0"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/body_base_link_collision.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Link waist_yaw_link -->
+  <link name="waist_yaw_link">
+    <inertial>
+      <origin xyz="6.96649e-09 0.0176858 0.0185467" rpy="0 0 0"/>
+      <mass value="0.318626"/>
+      <inertia ixx="0.000368773" ixy="-9.75394e-11" ixz="1.12765e-11" iyy="0.000823063" iyz="-7.3433e-05" izz="0.0010301"/>
+    </inertial>
+    <!-- Part waist_yaw_link_parts -->
+    <visual>
+      <origin xyz="6.96649e-09 0.0176858 0.0185467" rpy="-2.97096e-13 1.37002e-13 -1.5708"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/waist_yaw_link_visual.stl"/>
+      </geometry>
+      <material name="waist_yaw_link_parts_material">
+        <color rgba="0.62997 0.641781 0.667579 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="6.96649e-09 0.0176858 0.0185467" rpy="-2.97096e-13 1.37002e-13 -1.5708"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/waist_yaw_link_collision.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Frame closing_waist_left_passive2_joint_1 (dummy link + fixed joint) -->
+  <link name="closing_waist_left_passive2_joint_1">
+    <origin xyz="0 0 0" rpy="0 -0 0"/>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1e-9"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+  </link>
+  <joint name="closing_waist_left_passive2_joint_1_frame" type="fixed">
+    <origin xyz="0.088 0.05 0.035" rpy="-1.5708 -1.80855e-13 -3.14159"/>
+    <parent link="waist_yaw_link"/>
+    <child link="closing_waist_left_passive2_joint_1"/>
+    <axis xyz="0 0 0"/>
+  </joint>
+  <!-- Frame closing_waist_right_passive2_joint_1 (dummy link + fixed joint) -->
+  <link name="closing_waist_right_passive2_joint_1">
+    <origin xyz="0 0 0" rpy="0 -0 0"/>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1e-9"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+  </link>
+  <joint name="closing_waist_right_passive2_joint_1_frame" type="fixed">
+    <origin xyz="-0.088 0.05 0.035" rpy="-1.5708 -1.21791e-13 -3.14159"/>
+    <parent link="waist_yaw_link"/>
+    <child link="closing_waist_right_passive2_joint_1"/>
+    <axis xyz="0 0 0"/>
+  </joint>
+  <!-- Link waist_roll_link -->
+  <link name="waist_roll_link">
+    <inertial>
+      <origin xyz="-5.81324e-13 -1.64807e-16 0.0177" rpy="0 0 0"/>
+      <mass value="0.125178"/>
+      <inertia ixx="1.24231e-05" ixy="9.2054e-19" ixz="-2.72412e-16" iyy="2.84421e-05" iyz="9.3826e-19" izz="2.01802e-05"/>
+    </inertial>
+    <!-- Part waist_roll_link_parts -->
+    <visual>
+      <origin xyz="-5.81324e-13 0 0.0177" rpy="-1.5708 -1.5708 0"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/waist_roll_link_visual.stl"/>
+      </geometry>
+      <material name="waist_roll_link_parts_material">
+        <color rgba="0.81186 0.895376 0.942702 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-5.81324e-13 0 0.0177" rpy="-1.5708 -1.5708 0"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/waist_roll_link_collision.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Link chest_link -->
+  <link name="chest_link">
+    <inertial>
+      <origin xyz="0.00598813 0.153501 0.0231031" rpy="0 0 0"/>
+      <mass value="8.27946"/>
+      <inertia ixx="0.119436" ixy="-0.00499883" ixz="4.07256e-05" iyy="0.0529458" iyz="-2.85322e-05" izz="0.0772233"/>
+    </inertial>
+    <!-- Part chest_link_parts -->
+    <visual>
+      <origin xyz="0.00598813 0.153501 0.0231031" rpy="1.5708 -1.24079e-13 -3.14159"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/chest_link_visual.stl"/>
+      </geometry>
+      <material name="chest_link_parts_material">
+        <color rgba="0.775413 0.837045 0.865614 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.00598813 0.153501 0.0231031" rpy="1.5708 -1.24079e-13 -3.14159"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/chest_link_collision.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Link waist_left_link -->
+  <link name="waist_left_link">
+    <inertial>
+      <origin xyz="2.84367e-07 -0.0221506 -0.0066566" rpy="0 0 0"/>
+      <mass value="0.0904052"/>
+      <inertia ixx="8.85019e-05" ixy="6.68215e-10" ixz="1.74121e-10" iyy="3.64587e-05" iyz="-1.35386e-05" izz="0.000109689"/>
+    </inertial>
+    <!-- Part waist_left_link_parts -->
+    <visual>
+      <origin xyz="2.84367e-07 -0.0221506 -0.0066566" rpy="-1.5708 9.95384e-14 1.5708"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/waist_left_link_visual.stl"/>
+      </geometry>
+      <material name="waist_left_link_parts_material">
+        <color rgba="0.651753 0.797067 0.884255 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="2.84367e-07 -0.0221506 -0.0066566" rpy="-1.5708 9.95384e-14 1.5708"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/waist_left_link_collision.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Link waist_left_passive1_joint_link_x -->
+  <link name="waist_left_passive1_joint_link_x">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1e-09"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <!-- Part waist_left_passive1_joint_link_x_parts -->
+  </link>
+  <!-- Link waist_left_passive1_joint_link_y -->
+  <link name="waist_left_passive1_joint_link_y">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1e-09"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <!-- Part waist_left_passive1_joint_link_y_parts -->
+  </link>
+  <!-- Link waist_left_passive_link -->
+  <link name="waist_left_passive_link">
+    <inertial>
+      <origin xyz="0.00782784 -0.0357958 -0.000151758" rpy="0 0 0"/>
+      <mass value="0.029442"/>
+      <inertia ixx="2.28696e-05" ixy="6.4948e-06" ixz="2.77059e-08" iyy="3.44733e-06" iyz="-9.07758e-08" izz="2.4643e-05"/>
+    </inertial>
+    <!-- Part waist_left_passive_link_parts -->
+    <visual>
+      <origin xyz="0.00782784 -0.0357958 -0.000151758" rpy="3.14159 1.57078 -1.5708"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/waist_left_passive_link_visual.stl"/>
+      </geometry>
+      <material name="waist_left_passive_link_parts_material">
+        <color rgba="0.410396 0.459373 0.566349 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.00782784 -0.0357958 -0.000151758" rpy="3.14159 1.57078 -1.5708"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/waist_left_passive_link_collision.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Frame closing_waist_left_passive2_joint_2 (dummy link + fixed joint) -->
+  <link name="closing_waist_left_passive2_joint_2">
+    <origin xyz="0 0 0" rpy="0 -0 0"/>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1e-9"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+  </link>
+  <joint name="closing_waist_left_passive2_joint_2_frame" type="fixed">
+    <origin xyz="0.02 -0.0699994 -0.0002991" rpy="-3.13746 0.000490521 2.06093e-06"/>
+    <parent link="waist_left_passive_link"/>
+    <child link="closing_waist_left_passive2_joint_2"/>
+    <axis xyz="0 0 0"/>
+  </joint>
+  <!-- Joint from waist_left_passive1_joint_link_y to waist_left_passive_link -->
+  <joint name="waist_left_passive1_joint_z" type="revolute">
+    <origin xyz="0 2.22045e-16 0" rpy="-1.69407e-21 1.08299e-29 0"/>
+    <parent link="waist_left_passive1_joint_link_y"/>
+    <child link="waist_left_passive_link"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10" velocity="10" lower="-3.141592653589793" upper="3.141592653589793"/>
+  </joint>
+  <!-- Joint from waist_left_passive1_joint_link_x to waist_left_passive1_joint_link_y -->
+  <joint name="waist_left_passive1_joint_y" type="revolute">
+    <origin xyz="0 2.22045e-16 0" rpy="-1.69407e-21 1.08299e-29 0"/>
+    <parent link="waist_left_passive1_joint_link_x"/>
+    <child link="waist_left_passive1_joint_link_y"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="10" velocity="10" lower="-3.141592653589793" upper="3.141592653589793"/>
+  </joint>
+  <!-- Joint from waist_left_link to waist_left_passive1_joint_link_x -->
+  <joint name="waist_left_passive1_joint_x" type="revolute">
+    <origin xyz="6.42849e-07 -0.05 -0.0205" rpy="1.57081 -1.5708 0"/>
+    <parent link="waist_left_link"/>
+    <child link="waist_left_passive1_joint_link_x"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="10" velocity="10" lower="-3.141592653589793" upper="3.141592653589793"/>
+  </joint>
+  <!-- Joint from chest_link to waist_left_link -->
+  <joint name="waist_left_joint" type="revolute">
+    <origin xyz="8.59392e-12 0.07 0.1105" rpy="3.14159 -5.9952e-14 -1.5708"/>
+    <parent link="chest_link"/>
+    <child link="waist_left_link"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="96" velocity="3.92699" lower="-0.610878" upper="1.04718"/>
+    <joint_properties friction="0.5"/>
+  </joint>
+  <!-- Link waist_right_link -->
+  <link name="waist_right_link">
+    <inertial>
+      <origin xyz="2.85212e-07 0.0221506 -0.0066566" rpy="0 0 0"/>
+      <mass value="0.0904052"/>
+      <inertia ixx="8.85019e-05" ixy="-6.70022e-10" ixz="1.7401e-10" iyy="3.64587e-05" iyz="1.35386e-05" izz="0.000109689"/>
+    </inertial>
+    <!-- Part waist_right_link_parts -->
+    <visual>
+      <origin xyz="2.85212e-07 0.0221506 -0.0066566" rpy="1.5708 -9.95384e-14 -1.5708"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/waist_right_link_visual.stl"/>
+      </geometry>
+      <material name="waist_right_link_parts_material">
+        <color rgba="0.651753 0.797067 0.884255 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="2.85212e-07 0.0221506 -0.0066566" rpy="1.5708 -9.95384e-14 -1.5708"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/waist_right_link_collision.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Link waist_right_passive1_joint_link_x -->
+  <link name="waist_right_passive1_joint_link_x">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1e-09"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <!-- Part waist_right_passive1_joint_link_x_parts -->
+  </link>
+  <!-- Link waist_right_passive1_joint_link_y -->
+  <link name="waist_right_passive1_joint_link_y">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1e-09"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <!-- Part waist_right_passive1_joint_link_y_parts -->
+  </link>
+  <!-- Link waist_right_passive_link -->
+  <link name="waist_right_passive_link">
+    <inertial>
+      <origin xyz="-0.00782784 -0.0357958 -0.000148717" rpy="0 0 0"/>
+      <mass value="0.029442"/>
+      <inertia ixx="2.28696e-05" ixy="-6.4948e-06" ixz="-2.76119e-08" iyy="3.44734e-06" iyz="-9.13537e-08" izz="2.4643e-05"/>
+    </inertial>
+    <!-- Part waist_right_passive_link_parts -->
+    <visual>
+      <origin xyz="-0.00782784 -0.0357958 -0.000148717" rpy="3.14159 1.57078 -1.5708"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/waist_right_passive_link_visual.stl"/>
+      </geometry>
+      <material name="waist_right_passive_link_parts_material">
+        <color rgba="0.410396 0.459373 0.566349 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.00782784 -0.0357958 -0.000148717" rpy="3.14159 1.57078 -1.5708"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/waist_right_passive_link_collision.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Frame closing_waist_right_passive2_joint_2 (dummy link + fixed joint) -->
+  <link name="closing_waist_right_passive2_joint_2">
+    <origin xyz="0 0 0" rpy="0 -0 0"/>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1e-9"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+  </link>
+  <joint name="closing_waist_right_passive2_joint_2_frame" type="fixed">
+    <origin xyz="-0.02 -0.0699994 -0.0002991" rpy="-3.13783 -0.00177193 -7.12208e-06"/>
+    <parent link="waist_right_passive_link"/>
+    <child link="closing_waist_right_passive2_joint_2"/>
+    <axis xyz="0 0 0"/>
+  </joint>
+  <!-- Joint from waist_right_passive1_joint_link_y to waist_right_passive_link -->
+  <joint name="waist_right_passive1_joint_z" type="revolute">
+    <origin xyz="0 0 0" rpy="0 2.09079e-30 0"/>
+    <parent link="waist_right_passive1_joint_link_y"/>
+    <child link="waist_right_passive_link"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10" velocity="10" lower="-3.141592653589793" upper="3.141592653589793"/>
+  </joint>
+  <!-- Joint from waist_right_passive1_joint_link_x to waist_right_passive1_joint_link_y -->
+  <joint name="waist_right_passive1_joint_y" type="revolute">
+    <origin xyz="0 0 0" rpy="0 2.09079e-30 0"/>
+    <parent link="waist_right_passive1_joint_link_x"/>
+    <child link="waist_right_passive1_joint_link_y"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="10" velocity="10" lower="-3.141592653589793" upper="3.141592653589793"/>
+  </joint>
+  <!-- Joint from waist_right_link to waist_right_passive1_joint_link_x -->
+  <joint name="waist_right_passive1_joint_x" type="revolute">
+    <origin xyz="6.42849e-07 0.05 -0.0205" rpy="-1.57078 1.5708 0"/>
+    <parent link="waist_right_link"/>
+    <child link="waist_right_passive1_joint_link_x"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="10" velocity="10" lower="-3.141592653589793" upper="3.141592653589793"/>
+  </joint>
+  <!-- Joint from chest_link to waist_right_link -->
+  <joint name="waist_right_joint" type="revolute">
+    <origin xyz="-8.58013e-12 0.07 -0.0645" rpy="-2.45405e-14 -5.9952e-14 -1.5708"/>
+    <parent link="chest_link"/>
+    <child link="waist_right_link"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="96" velocity="3.92699" lower="-1.04718" upper="0.610878"/>
+    <joint_properties friction="0.5"/>
+  </joint>
+  <!-- Link left_shoulder_pitch_link -->
+  <link name="left_shoulder_pitch_link">
+    <inertial>
+      <origin xyz="0.00445247 -0.00401905 0.0555302" rpy="0 0 0"/>
+      <mass value="1.61013"/>
+      <inertia ixx="0.00169156" ixy="-6.04835e-05" ixz="-1.91261e-05" iyy="0.00169393" iyz="3.84532e-05" izz="0.00136864"/>
+    </inertial>
+    <!-- Part left_shoulder_pitch_link_parts -->
+    <visual>
+      <origin xyz="0.00445247 -0.00401905 0.0555302" rpy="1.39626 -8.25596e-14 -3.14159"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/left_shoulder_pitch_link_visual.stl"/>
+      </geometry>
+      <material name="left_shoulder_pitch_link_parts_material">
+        <color rgba="0.661727 0.814348 0.901578 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.00445247 -0.00401905 0.0555302" rpy="1.39626 -8.25596e-14 -3.14159"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/left_shoulder_pitch_link_collision.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Link left_shoulder_roll_link -->
+  <link name="left_shoulder_roll_link">
+    <inertial>
+      <origin xyz="-0.113042 1.86932e-05 -0.0428809" rpy="0 0 0"/>
+      <mass value="1.23133"/>
+      <inertia ixx="0.0010626" ixy="-4.20698e-07" ixz="-5.54234e-06" iyy="0.00194814" iyz="1.63617e-07" izz="0.00180368"/>
+    </inertial>
+    <!-- Part left_shoulder_roll_link_parts -->
+    <visual>
+      <origin xyz="-0.113042 1.86932e-05 -0.0428809" rpy="2.96706 0.785398 -2.61799"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/left_shoulder_roll_link_visual.stl"/>
+      </geometry>
+      <material name="left_shoulder_roll_link_parts_material">
+        <color rgba="0.495831 0.510254 0.526236 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.113042 1.86932e-05 -0.0428809" rpy="2.96706 0.785398 -2.61799"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/left_shoulder_roll_link_collision.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Link left_shoulder_yaw_link -->
+  <link name="left_shoulder_yaw_link">
+    <inertial>
+      <origin xyz="0.00144727 0.00119292 0.0961527" rpy="0 0 0"/>
+      <mass value="1.32768"/>
+      <inertia ixx="0.00221382" ixy="4.50044e-07" ixz="-2.45225e-05" iyy="0.00222585" iyz="5.42601e-05" izz="0.000940724"/>
+    </inertial>
+    <!-- Part left_shoulder_yaw_link_parts -->
+    <visual>
+      <origin xyz="0.00144727 0.00119292 0.0961527" rpy="2.28234 -0.659058 -1.10715"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/left_shoulder_yaw_link_visual.stl"/>
+      </geometry>
+      <material name="left_shoulder_yaw_link_parts_material">
+        <color rgba="0.534608 0.588362 0.619697 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.00144727 0.00119292 0.0961527" rpy="2.28234 -0.659058 -1.10715"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/left_shoulder_yaw_link_collision.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Link left_elbow_pitch_link -->
+  <link name="left_elbow_pitch_link">
+    <inertial>
+      <origin xyz="-0.0818905 0.000647018 -0.0402032" rpy="0 0 0"/>
+      <mass value="1.17763"/>
+      <inertia ixx="0.00094916" ixy="-1.58858e-05" ixz="-3.04234e-05" iyy="0.00125269" iyz="7.52023e-08" izz="0.00115385"/>
+    </inertial>
+    <!-- Part left_elbow_pitch_link_parts -->
+    <visual>
+      <origin xyz="-0.0818905 0.000647018 -0.0402032" rpy="-2.13293 -0.361367 2.82057"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/left_elbow_pitch_link_visual.stl"/>
+      </geometry>
+      <material name="left_elbow_pitch_link_parts_material">
+        <color rgba="0.540973 0.537254 0.515031 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.0818905 0.000647018 -0.0402032" rpy="-2.13293 -0.361367 2.82057"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/left_elbow_pitch_link_collision.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Link left_wrist_roll_link -->
+  <link name="left_wrist_roll_link">
+    <inertial>
+      <origin xyz="-7.42692e-11 0.000278379 0.0385646" rpy="0 0 0"/>
+      <mass value="0.404705"/>
+      <inertia ixx="0.000421826" ixy="-6.65218e-12" ixz="-1.68616e-12" iyy="0.00034236" iyz="1.62664e-05" izz="0.000208792"/>
+    </inertial>
+    <!-- Part left_wrist_roll_link_parts -->
+    <visual>
+      <origin xyz="-7.42693e-11 0.000278379 0.0385646" rpy="0.253905 -1.09217 2.26642"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/left_wrist_roll_link_visual.stl"/>
+      </geometry>
+      <material name="left_wrist_roll_link_parts_material">
+        <color rgba="0.616041 0.753599 0.806876 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-7.42693e-11 0.000278379 0.0385646" rpy="0.253905 -1.09217 2.26642"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/left_wrist_roll_link_collision.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Link left_wrist_pitch_link -->
+  <link name="left_wrist_pitch_link">
+    <inertial>
+      <origin xyz="-0.00106391 -2.33323e-11 0.0219286" rpy="0 0 0"/>
+      <mass value="0.304398"/>
+      <inertia ixx="8.08739e-05" ixy="1.64597e-11" ixz="5.38408e-07" iyy="0.000118571" iyz="4.41999e-12" izz="0.000107519"/>
+    </inertial>
+    <!-- Part left_wrist_pitch_link_parts -->
+    <visual>
+      <origin xyz="-0.00106391 -2.33324e-11 0.0219286" rpy="-2.13293 -0.361367 1.24977"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/left_wrist_pitch_link_visual.stl"/>
+      </geometry>
+      <material name="left_wrist_pitch_link_parts_material">
+        <color rgba="0.637078 0.780124 0.849341 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.00106391 -2.33324e-11 0.0219286" rpy="-2.13293 -0.361367 1.24977"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/left_wrist_pitch_link_collision.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Link left_wrist_yaw_link -->
+  <link name="left_wrist_yaw_link">
+    <inertial>
+      <origin xyz="-1.12308e-10 0.0267049 0.0302175" rpy="0 0 0"/>
+      <mass value="0.0547065"/>
+      <inertia ixx="5.07331e-05" ixy="3.12122e-13" ixz="-2.86228e-11" iyy="4.43376e-05" iyz="2.44558e-07" izz="2.14007e-05"/>
+    </inertial>
+    <!-- Part left_wrist_yaw_link_parts -->
+    <visual>
+      <origin xyz="-1.12308e-10 0.0267049 0.0302175" rpy="2.46243 -0.299623 1.94985"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/left_wrist_yaw_link_visual.stl"/>
+      </geometry>
+      <material name="left_wrist_yaw_link_parts_material">
+        <color rgba="0.594174 0.694485 0.754671 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-1.12308e-10 0.0267049 0.0302175" rpy="2.46243 -0.299623 1.94985"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/left_wrist_yaw_link_collision.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Frame left_hand (dummy link + fixed joint) -->
+  <link name="left_hand">
+    <origin xyz="0 0 0" rpy="0 -0 0"/>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1e-9"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+  </link>
+  <joint name="left_hand_frame" type="fixed">
+    <origin xyz="-2.07612e-14 0.0485 0.03005" rpy="1.5708 -1.66533e-16 -3.14159"/>
+    <parent link="left_wrist_yaw_link"/>
+    <child link="left_hand"/>
+    <axis xyz="0 0 0"/>
+  </joint>
+  <!-- Joint from left_wrist_pitch_link to left_wrist_yaw_link -->
+  <joint name="left_wrist_yaw_joint" type="revolute">
+    <origin xyz="-0.03155 2.88658e-15 0.022" rpy="-1.11022e-16 1.5708 0"/>
+    <parent link="left_wrist_pitch_link"/>
+    <child link="left_wrist_yaw_link"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="4.8" velocity="4.18879" lower="-0.785398" upper="1.5708"/>
+    <joint_properties friction="0.5"/>
+  </joint>
+  <!-- Joint from left_wrist_roll_link to left_wrist_pitch_link -->
+  <joint name="left_wrist_pitch_joint" type="revolute">
+    <origin xyz="-5.44009e-15 -0.022 0.099" rpy="1.5708 5.1964e-13 -3.14159"/>
+    <parent link="left_wrist_roll_link"/>
+    <child link="left_wrist_pitch_link"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="4.8" velocity="4.18879" lower="-0.785398" upper="0.785398"/>
+    <joint_properties friction="0.5"/>
+  </joint>
+  <!-- Joint from left_elbow_pitch_link to left_wrist_roll_link -->
+  <joint name="left_wrist_roll_joint" type="revolute">
+    <origin xyz="-0.124 -2.85327e-14 -0.0405" rpy="1.5708 -9.24261e-14 -1.5708"/>
+    <parent link="left_elbow_pitch_link"/>
+    <child link="left_wrist_roll_link"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="23" velocity="6.28319" lower="-1.5708" upper="1.5708"/>
+    <joint_properties friction="0.5"/>
+  </joint>
+  <!-- Joint from left_shoulder_yaw_link to left_elbow_pitch_link -->
+  <joint name="left_elbow_pitch_joint" type="revolute">
+    <origin xyz="0.0405 -2.60902e-14 0.11" rpy="1.5708 0.392699 1.5708"/>
+    <parent link="left_shoulder_yaw_link"/>
+    <child link="left_elbow_pitch_link"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="23" velocity="6.28319" lower="-1.1781" upper="1.1781"/>
+    <joint_properties friction="0.5"/>
+  </joint>
+  <!-- Joint from left_shoulder_roll_link to left_shoulder_yaw_link -->
+  <joint name="left_shoulder_yaw_joint" type="revolute">
+    <origin xyz="-0.16 -8.10463e-14 -0.043" rpy="1.5708 -5.08538e-13 -1.5708"/>
+    <parent link="left_shoulder_roll_link"/>
+    <child link="left_shoulder_yaw_link"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="23" velocity="6.28319" lower="-1.5708" upper="1.5708"/>
+    <joint_properties friction="0.5"/>
+  </joint>
+  <!-- Joint from left_shoulder_pitch_link to left_shoulder_roll_link -->
+  <joint name="left_shoulder_roll_joint" type="revolute">
+    <origin xyz="0.0311127 -0.0311127 0.06" rpy="1.5708 0.523599 0.785398"/>
+    <parent link="left_shoulder_pitch_link"/>
+    <child link="left_shoulder_roll_link"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="70" velocity="3.14159" lower="-1.0472" upper="1.0472"/>
+    <joint_properties friction="0.5"/>
+  </joint>
+  <!-- Joint from chest_link to left_shoulder_pitch_link -->
+  <joint name="left_shoulder_pitch_joint" type="revolute">
+    <origin xyz="0.01443 0.247814 0.160316" rpy="-0.174533 6.17326e-15 -1.36416e-15"/>
+    <parent link="chest_link"/>
+    <child link="left_shoulder_pitch_link"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="70" velocity="3.14159" lower="-2.35619" upper="2.35619"/>
+    <joint_properties friction="0.5"/>
+  </joint>
+  <!-- Link right_shoulder_pitch_link -->
+  <link name="right_shoulder_pitch_link">
+    <inertial>
+      <origin xyz="-0.00435028 -0.00412125 0.0556137" rpy="0 0 0"/>
+      <mass value="1.61012"/>
+      <inertia ixx="0.00169967" ixy="6.05419e-05" ixz="2.11785e-05" iyy="0.00168831" iyz="4.20073e-05" izz="0.00136875"/>
+    </inertial>
+    <!-- Part right_shoulder_pitch_link_parts -->
+    <visual>
+      <origin xyz="-0.00435028 -0.00412125 0.0556137" rpy="-1.39626 1.06657e-13 -2.04409e-13"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/right_shoulder_pitch_link_visual.stl"/>
+      </geometry>
+      <material name="right_shoulder_pitch_link_parts_material">
+        <color rgba="0.666158 0.787435 0.786963 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.00435028 -0.00412125 0.0556137" rpy="-1.39626 1.06657e-13 -2.04409e-13"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/right_shoulder_pitch_link_collision.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Link right_shoulder_roll_link -->
+  <link name="right_shoulder_roll_link">
+    <inertial>
+      <origin xyz="-0.113042 -1.86911e-05 -0.0428187" rpy="0 0 0"/>
+      <mass value="1.23133"/>
+      <inertia ixx="0.00106257" ixy="4.20577e-07" ixz="-7.26269e-06" iyy="0.00194811" iyz="1.56805e-07" izz="0.00180368"/>
+    </inertial>
+    <!-- Part right_shoulder_roll_link_parts -->
+    <visual>
+      <origin xyz="-0.113042 -1.86911e-05 -0.0428187" rpy="-2.96706 0.785398 2.61799"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/right_shoulder_roll_link_visual.stl"/>
+      </geometry>
+      <material name="right_shoulder_roll_link_parts_material">
+        <color rgba="0.524464 0.533979 0.539688 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.113042 -1.86911e-05 -0.0428187" rpy="-2.96706 0.785398 2.61799"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/right_shoulder_roll_link_collision.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Link right_shoulder_yaw_link -->
+  <link name="right_shoulder_yaw_link">
+    <inertial>
+      <origin xyz="-0.00144725 0.00119294 0.096095" rpy="0 0 0"/>
+      <mass value="1.32768"/>
+      <inertia ixx="0.0022117" ixy="-4.50574e-07" ixz="2.68485e-05" iyy="0.00222373" iyz="5.44907e-05" izz="0.000940725"/>
+    </inertial>
+    <!-- Part right_shoulder_yaw_link_parts -->
+    <visual>
+      <origin xyz="-0.00144725 0.00119294 0.096095" rpy="-2.28234 -0.659058 -2.03444"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/right_shoulder_yaw_link_visual.stl"/>
+      </geometry>
+      <material name="right_shoulder_yaw_link_parts_material">
+        <color rgba="0.579661 0.60817 0.621792 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.00144725 0.00119294 0.096095" rpy="-2.28234 -0.659058 -2.03444"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/right_shoulder_yaw_link_collision.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Link right_elbow_pitch_link -->
+  <link name="right_elbow_pitch_link">
+    <inertial>
+      <origin xyz="-0.0818905 -0.000712004 -0.0402032" rpy="0 0 0"/>
+      <mass value="1.17763"/>
+      <inertia ixx="0.000949056" ixy="1.79772e-05" ixz="-3.04229e-05" iyy="0.00125269" iyz="-4.18437e-07" izz="0.00115375"/>
+    </inertial>
+    <!-- Part right_elbow_pitch_link_parts -->
+    <visual>
+      <origin xyz="-0.0818905 -0.000712004 -0.0402032" rpy="2.13293 -0.361367 -2.82057"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/right_elbow_pitch_link_visual.stl"/>
+      </geometry>
+      <material name="right_elbow_pitch_link_parts_material">
+        <color rgba="0.588878 0.529825 0.457356 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.0818905 -0.000712004 -0.0402032" rpy="2.13293 -0.361367 -2.82057"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/right_elbow_pitch_link_collision.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Link right_wrist_roll_link -->
+  <link name="right_wrist_roll_link">
+    <inertial>
+      <origin xyz="1.97018e-10 -0.000317914 0.0385646" rpy="0 0 0"/>
+      <mass value="0.404705"/>
+      <inertia ixx="0.000420807" ixy="-5.82532e-12" ixz="1.70915e-12" iyy="0.00034236" iyz="-1.57794e-05" izz="0.000207773"/>
+    </inertial>
+    <!-- Part right_wrist_roll_link_parts -->
+    <visual>
+      <origin xyz="1.97018e-10 -0.000317914 0.0385646" rpy="-0.253905 -1.09217 -2.26642"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/right_wrist_roll_link_visual.stl"/>
+      </geometry>
+      <material name="right_wrist_roll_link_parts_material">
+        <color rgba="0.650084 0.792364 0.881286 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="1.97018e-10 -0.000317914 0.0385646" rpy="-0.253905 -1.09217 -2.26642"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/right_wrist_roll_link_collision.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Link right_wrist_ptich_link -->
+  <link name="right_wrist_ptich_link">
+    <inertial>
+      <origin xyz="-0.00106391 -1.95311e-10 0.0220599" rpy="0 0 0"/>
+      <mass value="0.304398"/>
+      <inertia ixx="8.08744e-05" ixy="3.53192e-13" ixz="-5.34681e-07" iyy="0.000118571" iyz="-9.46581e-11" izz="0.000107519"/>
+    </inertial>
+    <!-- Part right_wrist_ptich_link_parts -->
+    <visual>
+      <origin xyz="-0.00106391 -1.95311e-10 0.0220599" rpy="2.13293 -0.361367 1.89182"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/right_wrist_ptich_link_visual.stl"/>
+      </geometry>
+      <material name="right_wrist_ptich_link_parts_material">
+        <color rgba="0.698304 0.762657 0.745079 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.00106391 -1.95311e-10 0.0220599" rpy="2.13293 -0.361367 1.89182"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/right_wrist_ptich_link_collision.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Link right_wrist_yaw_link -->
+  <link name="right_wrist_yaw_link">
+    <inertial>
+      <origin xyz="-1.12277e-10 0.0267049 0.0302175" rpy="0 0 0"/>
+      <mass value="0.0547065"/>
+      <inertia ixx="5.07331e-05" ixy="3.12103e-13" ixz="-2.86228e-11" iyy="4.43376e-05" iyz="2.44558e-07" izz="2.14007e-05"/>
+    </inertial>
+    <!-- Part right_wrist_yaw_link_parts -->
+    <visual>
+      <origin xyz="-1.12277e-10 0.0267049 0.0302175" rpy="0.679159 0.299623 1.94985"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/right_wrist_yaw_link_visual.stl"/>
+      </geometry>
+      <material name="right_wrist_yaw_link_parts_material">
+        <color rgba="0.594174 0.694485 0.754671 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-1.12277e-10 0.0267049 0.0302175" rpy="0.679159 0.299623 1.94985"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/right_wrist_yaw_link_collision.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Frame right_hand (dummy link + fixed joint) -->
+  <link name="right_hand">
+    <origin xyz="0 0 0" rpy="0 -0 0"/>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1e-9"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+  </link>
+  <joint name="right_hand_frame" type="fixed">
+    <origin xyz="3.475e-14 0.0485 0.03005" rpy="1.5708 -4.44089e-16 3.14159"/>
+    <parent link="right_wrist_yaw_link"/>
+    <child link="right_hand"/>
+    <axis xyz="0 0 0"/>
+  </joint>
+  <!-- Joint from right_wrist_ptich_link to right_wrist_yaw_link -->
+  <joint name="right_wrist_yaw_joint" type="revolute">
+    <origin xyz="-0.03155 2.08722e-14 0.022" rpy="5.47729e-13 1.5708 0"/>
+    <parent link="right_wrist_ptich_link"/>
+    <child link="right_wrist_yaw_link"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="4.8" velocity="4.18879" lower="-0.785398" upper="1.5708"/>
+    <joint_properties friction="0.5"/>
+  </joint>
+  <!-- Joint from right_wrist_roll_link to right_wrist_ptich_link -->
+  <joint name="right_wrist_pitch_joint" type="revolute">
+    <origin xyz="-1.22125e-15 0.022 0.099" rpy="1.5708 2.02616e-14 -8.32667e-16"/>
+    <parent link="right_wrist_roll_link"/>
+    <child link="right_wrist_ptich_link"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="4.8" velocity="4.18879" lower="-0.785398" upper="0.785398"/>
+    <joint_properties friction="0.5"/>
+  </joint>
+  <!-- Joint from right_elbow_pitch_link to right_wrist_roll_link -->
+  <joint name="right_wrist_roll_joint" type="revolute">
+    <origin xyz="-0.124 -6.69464e-14 -0.0405" rpy="-1.5708 -2.08278e-13 1.5708"/>
+    <parent link="right_elbow_pitch_link"/>
+    <child link="right_wrist_roll_link"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="23" velocity="6.28319" lower="-1.5708" upper="1.5708"/>
+    <joint_properties friction="0.5"/>
+  </joint>
+  <!-- Joint from right_shoulder_yaw_link to right_elbow_pitch_link -->
+  <joint name="right_elbow_pitch_joint" type="revolute">
+    <origin xyz="-0.0405 4.20775e-14 0.11" rpy="-1.5708 0.392699 1.5708"/>
+    <parent link="right_shoulder_yaw_link"/>
+    <child link="right_elbow_pitch_link"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="23" velocity="6.28319" lower="-1.1781" upper="1.1781"/>
+    <joint_properties friction="0.5"/>
+  </joint>
+  <!-- Joint from right_shoulder_roll_link to right_shoulder_yaw_link -->
+  <joint name="right_shoulder_yaw_joint" type="revolute">
+    <origin xyz="-0.16 3.39728e-14 -0.043" rpy="1.5708 -3.68428e-13 -1.5708"/>
+    <parent link="right_shoulder_roll_link"/>
+    <child link="right_shoulder_yaw_link"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="23" velocity="6.28319" lower="-1.5708" upper="1.5708"/>
+    <joint_properties friction="0.5"/>
+  </joint>
+  <!-- Joint from right_shoulder_pitch_link to right_shoulder_roll_link -->
+  <joint name="right_shoulder_roll_joint" type="revolute">
+    <origin xyz="-0.0311127 -0.0311127 0.06" rpy="-1.5708 0.523599 2.35619"/>
+    <parent link="right_shoulder_pitch_link"/>
+    <child link="right_shoulder_roll_link"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="70" velocity="3.14159" lower="-1.0472" upper="1.0472"/>
+    <joint_properties friction="0.5"/>
+  </joint>
+  <!-- Joint from chest_link to right_shoulder_pitch_link -->
+  <joint name="right_shoulder_pitch_joint" type="revolute">
+    <origin xyz="0.01443 0.247814 -0.114316" rpy="2.96706 -5.45373e-14 3.14159"/>
+    <parent link="chest_link"/>
+    <child link="right_shoulder_pitch_link"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="70" velocity="3.14159" lower="-2.35619" upper="2.35619"/>
+    <joint_properties friction="0.5"/>
+  </joint>
+  <!-- Link neck_yaw_link -->
+  <link name="neck_yaw_link">
+    <inertial>
+      <origin xyz="3.01692e-05 -2.95874e-08 -0.025262" rpy="0 0 0"/>
+      <mass value="9.23497e-05"/>
+      <inertia ixx="2.57971e-08" ixy="3.86016e-14" ixz="1.93175e-10" iyy="3.72339e-08" iyz="5.77657e-14" izz="3.71365e-08"/>
+    </inertial>
+    <!-- Part neck_yaw_link_parts -->
+    <visual>
+      <origin xyz="3.01692e-05 -2.95874e-08 -0.025262" rpy="3.14159 -1.84133e-13 -1.95555e-13"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/neck_yaw_link_visual.stl"/>
+      </geometry>
+      <material name="neck_yaw_link_parts_material">
+        <color rgba="0.470469 0.628627 0.781159 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="3.01692e-05 -2.95874e-08 -0.025262" rpy="3.14159 -1.84133e-13 -1.95555e-13"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/neck_yaw_link_collision.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Link neck_roll_link -->
+  <link name="neck_roll_link">
+    <inertial>
+      <origin xyz="-0.0430653 -0.000214234 0.0303228" rpy="0 0 0"/>
+      <mass value="0.000107143"/>
+      <inertia ixx="5.21547e-08" ixy="-2.41301e-10" ixz="4.00021e-10" iyy="5.03411e-08" iyz="-6.60546e-13" izz="5.2811e-08"/>
+    </inertial>
+    <!-- Part neck_roll_link_parts -->
+    <visual>
+      <origin xyz="-0.0430653 -0.000214234 0.0303228" rpy="-3.15414e-13 -1.5708 0"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/neck_roll_link_visual.stl"/>
+      </geometry>
+      <material name="neck_roll_link_parts_material">
+        <color rgba="0.604479 0.726595 0.787909 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.0430653 -0.000214234 0.0303228" rpy="-3.15414e-13 -1.5708 0"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/neck_roll_link_collision.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Link neck_pitch_link -->
+  <link name="neck_pitch_link">
+    <inertial>
+      <origin xyz="-0.0597711 0.0161645 0.0287467" rpy="0 0 0"/>
+      <mass value="0.645759"/>
+      <inertia ixx="0.00323048" ixy="-0.000419023" ixz="2.92028e-06" iyy="0.00321103" iyz="-2.89743e-07" izz="0.00372135"/>
+    </inertial>
+    <!-- Part neck_pitch_link_parts -->
+    <visual>
+      <origin xyz="-0.0597711 0.0161645 0.0287467" rpy="-1.5708 1.94908e-13 1.5708"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/neck_pitch_link_visual.stl"/>
+      </geometry>
+      <material name="neck_pitch_link_parts_material">
+        <color rgba="0.649683 0.685003 0.686591 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.0597711 0.0161645 0.0287467" rpy="-1.5708 1.94908e-13 1.5708"/>
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/neck_pitch_link_collision.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Joint from neck_roll_link to neck_pitch_link -->
+  <joint name="neck_pitch_joint" type="revolute">
+    <origin xyz="-0.047 0.0288 0.0303" rpy="1.5708 -1.39145e-15 4.37966e-15"/>
+    <parent link="neck_roll_link"/>
+    <child link="neck_pitch_link"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="4.8" velocity="4.18879" lower="-0.349066" upper="0.0872665"/>
+    <joint_properties friction="0.5"/>
+  </joint>
+  <!-- Joint from neck_yaw_link to neck_roll_link -->
+  <joint name="neck_roll_joint" type="revolute">
+    <origin xyz="-0.0303 2.17579e-15 -0.0255" rpy="3.14159 -1.5708 0"/>
+    <parent link="neck_yaw_link"/>
+    <child link="neck_roll_link"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="4.8" velocity="4.18879" lower="-0.785398" upper="0.785398"/>
+    <joint_properties friction="0.5"/>
+  </joint>
+  <!-- Joint from chest_link to neck_yaw_link -->
+  <joint name="neck_yaw_joint" type="revolute">
+    <origin xyz="0.01443 0.35455 0.023" rpy="-1.5708 7.14761e-14 -3.14159"/>
+    <parent link="chest_link"/>
+    <child link="neck_yaw_link"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="4.8" velocity="4.18879" lower="-3.14159" upper="3.14159"/>
+    <joint_properties friction="0.5"/>
+  </joint>
+  <!-- Joint from waist_roll_link to chest_link -->
+  <joint name="waist_pitch_passive_joint" type="revolute">
+    <origin xyz="-0.023 3.10862e-15 0.0177" rpy="-9.71445e-15 1.5708 0"/>
+    <parent link="waist_roll_link"/>
+    <child link="chest_link"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10" velocity="10" lower="-0.349066" upper="0.523599"/>
+  </joint>
+  <!-- Joint from waist_yaw_link to waist_roll_link -->
+  <joint name="waist_roll_passive_joint" type="revolute">
+    <origin xyz="-1.61684e-14 0.018 0.035" rpy="1.5708 5.85643e-14 -1.38889e-13"/>
+    <parent link="waist_yaw_link"/>
+    <child link="waist_roll_link"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10" velocity="10" lower="-0.174533" upper="0.174533"/>
+  </joint>
+  <!-- Joint from body_base_link to waist_yaw_link -->
+  <joint name="waist_yaw_joint" type="revolute">
+    <origin xyz="-2.29257e-05 -5.21767e-07 1.08679" rpy="-1.37002e-13 -2.97096e-13 1.5708"/>
+    <parent link="body_base_link"/>
+    <child link="waist_yaw_link"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="96" velocity="3.92699" lower="-3.14159" upper="3.14159"/>
+    <joint_properties friction="0.5"/>
+  </joint>
+</robot>

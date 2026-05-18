@@ -4,7 +4,7 @@
 import array
 import time
 from abc import ABC, abstractmethod
-from threading import Lock, Thread
+from threading import Lock, RLock, Thread
 
 import mink
 import mujoco as mj
@@ -28,8 +28,12 @@ from adam_mink.constants import (
     DEFAULT_IK_ITER_MAX,
     DEFAULT_IK_SOLVER,
     DEFAULT_JOINT_STATE_QUEUE_SIZE,
+    DEFAULT_MOCAP_STALE_TIMEOUT,
     DEFAULT_MUJOCO_VIEWER_FREQUENCY,
+    DEFAULT_SOLVE_WARN_THRESHOLD,
+    DEFAULT_STAGE_WARN_THRESHOLD,
     DEFAULT_TIMER_PERIOD,
+    DEFAULT_TF_WARNING_INTERVAL,
     ROOT_POSE_NUM,
 )
 from adam_mink.utils import draw_frame, quat_mul_single, quat_rotate_vector
@@ -141,11 +145,19 @@ class AdamMinkBase(Node, ABC):
 
     def _initialize_ros_components(self) -> None:
         """Initialize ROS2 publishers, subscribers, and TF components."""
-        self.base_frame = "world"
+        # 1. 设置基准坐标系和校准标志
+        self.declare_parameter("base_frame", "world")
+        self.base_frame = self.get_parameter("base_frame").value
         self.calibrated = False
-
+        self._mocap_ready = False
+        self._last_mocap_update_time: float | None = None
+        self._last_tf_warning_time = 0.0
+        
+        # 2. 创建 TF 缓冲区和监听器
         self.tf_buffer = tf2_ros.Buffer()
         self.tf_listener = tf2_ros.TransformListener(self.tf_buffer, self)
+        
+        # 3. 创建关节状态发布器
         self.joint_state_pub = self.create_publisher(
             JointState, "/joint_states", DEFAULT_JOINT_STATE_QUEUE_SIZE
         )
@@ -165,6 +177,7 @@ class AdamMinkBase(Node, ABC):
 
         # Initialize configuration
         self.configuration = mink.Configuration(self.model)
+        self._configuration_lock = RLock()
 
     def _load_config(self, adam_mink_cfg_path: str) -> None:
         """Load and validate configuration file.
@@ -269,38 +282,57 @@ class AdamMinkBase(Node, ABC):
                 time.sleep(DEFAULT_TIMER_PERIOD)
                 continue
 
+            if not self._mocap_ready:
+                self._publish_joint_states()
+                time.sleep(DEFAULT_TIMER_PERIOD)
+                continue
+
+            if self._last_mocap_update_time is None:
+                self._publish_joint_states()
+                time.sleep(DEFAULT_TIMER_PERIOD)
+                continue
+
+            if time.time() - self._last_mocap_update_time > DEFAULT_MOCAP_STALE_TIMEOUT:
+                self._mocap_ready = False
+                self._warn_tf_status(
+                    f"Mocap data is stale for more than {DEFAULT_MOCAP_STALE_TIMEOUT:.2f}s; waiting for tracker TF to recover."
+                )
+                self._publish_joint_states()
+                time.sleep(DEFAULT_TIMER_PERIOD)
+                continue
+
             start_time = time.time()
             with self._data_lock:
                 mocap_data_copy = self.mocap_data.copy()
             if self.adam_mink_cfg.human_scale_table:
                 self.scale_mocap_data(mocap_data_copy)
             scale_time = time.time()
-            if scale_time - start_time > 0.001:
+            if scale_time - start_time > DEFAULT_STAGE_WARN_THRESHOLD:
                 self.get_logger().warning(
                     f"Scale mocap data took {scale_time - start_time} seconds"
                 )
             self.offset_mocap_data(mocap_data_copy)
             offset_time = time.time()
-            if offset_time - scale_time > 0.001:
+            if offset_time - scale_time > DEFAULT_STAGE_WARN_THRESHOLD:
                 self.get_logger().warning(
                     f"Offset mocap data took {offset_time - scale_time} seconds"
                 )
             self.mocap_data_adjusted = mocap_data_copy
             self._update_ik_targets()
             update_ik_targets_time = time.time()
-            if update_ik_targets_time - offset_time > 0.001:
+            if update_ik_targets_time - offset_time > DEFAULT_STAGE_WARN_THRESHOLD:
                 self.get_logger().warning(
                     f"Update IK targets took {update_ik_targets_time - offset_time} seconds"
                 )
             self._solve_ik()
             solve_ik_time = time.time()
-            if solve_ik_time - update_ik_targets_time > 0.02:
+            if solve_ik_time - update_ik_targets_time > DEFAULT_SOLVE_WARN_THRESHOLD:
                 self.get_logger().warning(
                     f"Solve IK took {solve_ik_time - update_ik_targets_time} seconds"
                 )
             self._publish_joint_states()
             publish_joint_states_time = time.time()
-            if publish_joint_states_time - solve_ik_time > 0.001:
+            if publish_joint_states_time - solve_ik_time > DEFAULT_STAGE_WARN_THRESHOLD:
                 self.get_logger().warning(
                     f"Publish joint states took {publish_joint_states_time - solve_ik_time} seconds"
                 )
@@ -356,11 +388,15 @@ class AdamMinkBase(Node, ABC):
             )
             for cfg in self.adam_mink_cfg.collision_cfg
         ]
+        # 2. 关节限位约束
         limits: list[
             mink.ConfigurationLimit | mink.CollisionAvoidanceLimit | mink.VelocityLimit
         ] = [mink.ConfigurationLimit(self.model)]
+
+        # 3. 将碰撞约束加入列表
         limits.extend(collision_avoidance_limit)
 
+        # 4. 速度限制约束
         velocity_limit = mink.VelocityLimit(self.model, self.adam_mink_cfg.velocity_limit)
         limits.append(velocity_limit)
         return limits
@@ -370,12 +406,20 @@ class AdamMinkBase(Node, ABC):
         if not self._update_mocap_data():
             return
 
+    def _warn_tf_status(self, message: str) -> None:
+        """Throttle repetitive TF-related warnings to keep logs readable."""
+        now = time.time()
+        if now - self._last_tf_warning_time >= DEFAULT_TF_WARNING_INTERVAL:
+            self.get_logger().warning(message)
+            self._last_tf_warning_time = now
+
     def _update_mocap_data(self) -> bool:
         """Update mocap data from TF transforms."""
         mocap_data_update = {}
 
         try:
             for bone in self.bone_frames:
+                # 将目标坐标系从 base_frame 转换到 bone
                 transform = self.tf_buffer.lookup_transform(
                     self.base_frame, bone, rclpy.time.Time()
                 )
@@ -396,15 +440,21 @@ class AdamMinkBase(Node, ABC):
                         ]
                     ),
                 )
-        except tf2_ros.LookupException:
+        except tf2_ros.LookupException as e:
+            self._mocap_ready = False
+            self._warn_tf_status(
+                f"Transform lookup exception: {self.base_frame} -> {bone}: {e}"
+            )
             return False
         except tf2_ros.ConnectivityException as e:
-            self.get_logger().warning(
+            self._mocap_ready = False
+            self._warn_tf_status(
                 f"Transform connectivity exception: {self.base_frame} -> {bone}: {e}"
             )
             return False
         except tf2_ros.ExtrapolationException as e:
-            self.get_logger().warning(
+            self._mocap_ready = False
+            self._warn_tf_status(
                 f"Transform extrapolation exception: {self.base_frame} -> {bone}: {e}"
             )
             return False
@@ -412,6 +462,8 @@ class AdamMinkBase(Node, ABC):
         # Update shared data with lock protection
         with self._data_lock:
             self.mocap_data.update(mocap_data_update)
+        self._mocap_ready = True
+        self._last_mocap_update_time = time.time()
         return True
 
     def _update_ik_targets(self) -> bool:
@@ -431,24 +483,26 @@ class AdamMinkBase(Node, ABC):
         num_iter = 0
 
         while num_iter < self.ik_iter_max:
-            vel = mink.solve_ik(
-                configuration=self.configuration,
-                tasks=self.tasks,
-                dt=dt,
-                solver=self.ik_solver,
-                damping=self.ik_damping,
-                limits=self.limits,
-            )
+            with self._configuration_lock:
+                vel = mink.solve_ik(
+                    configuration=self.configuration,
+                    tasks=self.tasks,
+                    dt=dt,
+                    solver=self.ik_solver,
+                    damping=self.ik_damping,
+                    limits=self.limits,
+                )
 
-            self.configuration.integrate_inplace(vel, dt)
+                self.configuration.integrate_inplace(vel, dt)
             num_iter += 1
 
     def _publish_joint_states(self) -> None:
         """Publish joint states to ROS topic."""
         self.joint_state_msg.header.stamp = self.get_clock().now().to_msg()
-        self.joint_state_msg.position[: self._qpos_size] = array.array(
-            "d", self.configuration.data.qpos.tolist()
-        )
+        with self._configuration_lock:
+            self.joint_state_msg.position[: self._qpos_size] = array.array(
+                "d", self.configuration.data.qpos.tolist()
+            )
         self.update_joint_states()
         self.joint_state_pub.publish(self.joint_state_msg)
 
@@ -520,17 +574,26 @@ class AdamMinkBase(Node, ABC):
         """Run Mujoco viewer in a separate thread."""
         try:
             model = self.configuration.model
-            data = self.configuration.data
+            viewer_data = mj.MjData(model)
             rate = RateLimiter(frequency=DEFAULT_MUJOCO_VIEWER_FREQUENCY, warn=False)
             with mjv.launch_passive(
-                model=model, data=data, show_left_ui=False, show_right_ui=False
+                model=model, data=viewer_data, show_left_ui=False, show_right_ui=False
             ) as viewer:
                 mj.mjv_defaultFreeCamera(model, viewer.cam)
 
                 while viewer.is_running():
                     try:
+                        with self._configuration_lock:
+                            np.copyto(viewer_data.qpos, self.configuration.data.qpos)
+                        mj.mj_forward(model, viewer_data)
+
                         viewer.user_scn.ngeom = 0
-                        for _, (pos, rot) in self.mocap_data_adjusted.items():
+                        with self._data_lock:
+                            mocap_snapshot = {
+                                name: (pos.copy(), rot.copy())
+                                for name, (pos, rot) in self.mocap_data_adjusted.items()
+                            }
+                        for _, (pos, rot) in mocap_snapshot.items():
                             draw_frame(
                                 pos,
                                 Rotation.from_quat(rot, scalar_first=True).as_matrix(),
@@ -539,7 +602,6 @@ class AdamMinkBase(Node, ABC):
                                 pos_offset=np.array([0.0, 0.0, 0.0]),
                                 joint_name=None,
                             )
-                        mj.mj_sensorPos(model, data)
                         viewer.sync()
                         rate.sleep()
                     except Exception as e:

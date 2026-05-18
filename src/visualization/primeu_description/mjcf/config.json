@@ -1,0 +1,189 @@
+{
+    "url": "https://cad.onshape.com/documents/e95d3c063e2b7f45272d3fcb/w/c59c777708add0ad5bdf1ca3/e/2eea157a8505fef62e822018",
+    "output_format": "mujoco",
+    "configuration": "SHELL=No Shell",
+    "package_name": "primeu_description",
+    "output_filename": "primeu_robot",
+    "assets_directory": "../assets",
+
+    "simplify_stls": true,
+    "max_stl_size": 1,
+    "merge_stls": true,
+
+    "include_configuration_suffix": false,
+
+    "joint_properties": {
+
+        "left_shoulder_pitch_joint": {
+            "max_effort": 70,
+            "max_velocity": 3.1415926535897927,
+            "friction": 0.5,
+            "damping": 1.5,
+            "armature": 0.70637,
+            "forcerange": 70
+        },
+        "left_shoulder_roll_joint": {
+            "max_effort": 70,
+            "max_velocity": 3.1415926535897927,
+            "friction": 0.5,
+            "damping": 1.5,
+            "armature": 0.70637,
+            "forcerange": 70
+        },
+
+        "left_shoulder_yaw_joint": {
+            "max_effort": 23,
+            "max_velocity": 6.283185307179585,
+            "friction": 0.5,
+            "damping": 1.5,
+            "armature": 0.12749,
+            "forcerange": 23
+        },
+        "left_elbow_pitch_joint": {
+            "max_effort": 23,
+            "max_velocity": 6.283185307179585,
+            "friction": 0.5,
+            "damping": 1.5,
+            "armature": 0.12749,
+            "forcerange": 23
+        },
+        "left_wrist_roll_joint": {
+            "max_effort": 23,
+            "max_velocity": 6.283185307179585,
+            "friction": 0.5,
+            "damping": 1.5,
+            "armature": 0.12749,
+            "forcerange": 23
+        },
+
+        "left_wrist_pitch_joint": {
+            "max_effort": 4.8,
+            "max_velocity": 4.1887902047863905,
+            "friction": 0.5,
+            "damping": 1.5,
+            "armature": 0.3,
+            "forcerange": 4.8
+        },
+        "left_wrist_yaw_joint": {
+            "max_effort": 4.8,
+            "max_velocity": 4.1887902047863905,
+            "friction": 0.5,
+            "damping": 1.5,
+            "armature": 0.3,
+            "forcerange": 4.8
+        },
+
+        "right_shoulder_pitch_joint": {
+            "max_effort": 70,
+            "max_velocity": 3.1415926535897927,
+            "friction": 0.5,
+            "damping": 1.5,
+            "armature": 0.70637,
+            "forcerange": 70
+        },
+        "right_shoulder_roll_joint": {
+            "max_effort": 70,
+            "max_velocity": 3.1415926535897927,
+            "friction": 0.5,
+            "damping": 1.5,
+            "armature": 0.70637,
+            "forcerange": 70
+        },
+        
+        "right_shoulder_yaw_joint": {
+            "max_effort": 23,
+            "max_velocity": 6.283185307179585,
+            "friction": 0.5,
+            "damping": 1.5,
+            "armature": 0.12749,
+            "forcerange": 23
+        },
+        "right_elbow_pitch_joint": {
+            "max_effort": 23,
+            "max_velocity": 6.283185307179585,
+            "friction": 0.5,
+            "damping": 1.5,
+            "armature": 0.12749,
+            "forcerange": 23
+        },
+        "right_wrist_roll_joint": {
+            "max_effort": 23,
+            "max_velocity": 6.283185307179585,
+            "friction": 0.5,
+            "damping": 1.5,
+            "armature": 0.12749,
+            "forcerange": 23
+        },
+
+        "right_wrist_pitch_joint": {
+            "max_effort": 4.8,
+            "max_velocity": 4.1887902047863905,
+            "friction": 0.5,
+            "damping": 1.5,
+            "armature": 0.3,
+            "forcerange": 4.8
+        },
+        "right_wrist_yaw_joint": {
+            "max_effort": 4.8,
+            "max_velocity": 4.1887902047863905,
+            "friction": 0.5,
+            "damping": 1.5,
+            "armature": 0.3,
+            "forcerange": 4.8
+        },
+
+        "waist_yaw_joint": {
+            "max_effort": 96,
+            "max_velocity": 3.9269908169872414,
+            "friction": 0.5,
+            "damping": 1.5,
+            "armature": 0.94096,
+            "forcerange": 96
+        },
+        "waist_left_joint": {
+            "max_effort": 96,
+            "max_velocity": 3.9269908169872414,
+            "friction": 0.5,
+            "damping": 1.5,
+            "armature": 0.94096,
+            "forcerange": 96
+        },
+        "waist_right_joint": {
+            "max_effort": 96,
+            "max_velocity": 3.9269908169872414,
+            "friction": 0.5,
+            "damping": 1.5,
+            "armature": 0.94096,
+            "forcerange": 96
+        },
+        "neck_yaw_joint": {
+            "max_effort": 4.8,
+            "max_velocity": 4.1887902047863905,
+            "friction": 0.5,
+            "damping": 1.5,
+            "armature": 0.3,
+            "forcerange": 4.8
+        },
+        "neck_roll_joint": {
+            "max_effort": 4.8,
+            "max_velocity": 4.1887902047863905,
+            "friction": 0.5,
+            "damping": 1.5,
+            "armature": 0.3,
+            "forcerange": 4.8
+        },
+         "neck_pitch_joint": {
+            "max_effort": 4.8,
+            "max_velocity": 4.1887902047863905,
+            "friction": 0.5,
+            "damping": 1.5,
+            "armature": 0.3,
+            "forcerange": 4.8
+        },
+
+        "waist_left_passive1_joint": {"actuated": false},
+        "waist_right_passive1_joint": {"actuated": false},
+        "waist_roll_passive_joint": {"actuated": false},
+        "waist_pitch_passive_joint": {"actuated": false}
+    }
+}

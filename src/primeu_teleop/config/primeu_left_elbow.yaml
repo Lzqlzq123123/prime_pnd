@@ -1,0 +1,56 @@
+# PrimeU tracker teleoperation configuration:
+# left wrist + waist + chest + left elbow tracker.
+
+ik_cfg:
+
+  - adam_link_name: "left_wrist_yaw_link"
+    bone_name: "LHR-6E8EC1F7" # left wrist tracker
+    position_cost: 10.0
+    orientation_cost: 8.0
+    pos_offset: [0.0, 0.0, 0.0]
+    rot_offset: [0.0572, 0.2412, 0.9564, 0.1546]
+
+  - adam_link_name: "waist_yaw_link"
+    bone_name: "LHR-31C9C2E6" # waist tracker
+    position_cost: 0.0
+    orientation_cost: 30.0
+    pos_offset: [0.0, 0.0, 0.0]
+    rot_offset: [1.0, 0.0, 0.0, 0.0]
+
+  - adam_link_name: "chest_link"
+    bone_name: "LHR-727BC33C" # chest tracker
+    position_cost: 0.0
+    orientation_cost: 30.0
+    pos_offset: [0.0, 0.0, 0.0]
+    rot_offset: [1.0, 0.0, 0.0, 0.0]
+
+  - adam_link_name: "left_elbow_pitch_link" # child link of left_elbow_pitch_joint
+    bone_name: "LHR-2631E6DD" # left arm / elbow tracker
+    position_cost: 8.0
+    orientation_cost: 6.0
+    pos_offset: [0.0, 0.0, 0.0]
+    rot_offset: [1.0, 0.0, 0.0, 0.0]
+
+collision_cfg: []
+
+velocity_limit:
+  "waist_yaw_joint": 4
+  "waist_roll_passive_joint": 3
+  "waist_pitch_passive_joint": 3
+  "left_shoulder_pitch_joint": 5
+  "left_shoulder_roll_joint": 5
+  "left_shoulder_yaw_joint": 5
+  "left_elbow_pitch_joint": 5
+  "left_wrist_roll_joint": 4
+  "left_wrist_pitch_joint": 4
+  "left_wrist_yaw_joint": 4
+  "right_shoulder_pitch_joint": 5
+  "right_shoulder_roll_joint": 5
+  "right_shoulder_yaw_joint": 5
+  "right_elbow_pitch_joint": 5
+  "right_wrist_roll_joint": 4
+  "right_wrist_pitch_joint": 4
+  "right_wrist_yaw_joint": 4
+  "neck_yaw_joint": 4
+  "neck_roll_joint": 4
+  "neck_pitch_joint": 4

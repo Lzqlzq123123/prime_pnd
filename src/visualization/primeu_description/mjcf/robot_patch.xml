@@ -1,0 +1,37 @@
+  <sensor>
+    <actuatorfrc name="u_waist_yaw_joint" actuator="waist_yaw_joint"/>
+    <actuatorfrc name="u_waist_left_joint" actuator="waist_left_joint"/>
+    <actuatorfrc name="u_waist_right_joint" actuator="waist_right_joint"/>
+    <actuatorfrc name="u_left_shoulder_pitch_joint" actuator="left_shoulder_pitch_joint"/>
+    <actuatorfrc name="u_left_shoulder_roll_joint" actuator="left_shoulder_roll_joint"/>
+    <actuatorfrc name="u_left_shoulder_yaw_joint" actuator="left_shoulder_yaw_joint"/>
+    <actuatorfrc name="u_left_elbow_pitch_joint" actuator="left_elbow_pitch_joint"/>
+    <actuatorfrc name="u_left_wrist_roll_joint" actuator="left_wrist_roll_joint"/>
+    <actuatorfrc name="u_left_wrist_pitch_joint" actuator="left_wrist_pitch_joint"/>
+    <actuatorfrc name="u_left_wrist_yaw_joint" actuator="left_wrist_yaw_joint"/>
+    <actuatorfrc name="u_right_shoulder_pitch_joint" actuator="right_shoulder_pitch_joint"/>
+    <actuatorfrc name="u_right_shoulder_roll_joint" actuator="right_shoulder_roll_joint"/>
+    <actuatorfrc name="u_right_shoulder_yaw_joint" actuator="right_shoulder_yaw_joint"/>
+    <actuatorfrc name="u_right_elbow_pitch_joint" actuator="right_elbow_pitch_joint"/>
+    <actuatorfrc name="u_right_wrist_roll_joint" actuator="right_wrist_roll_joint"/>
+    <actuatorfrc name="u_right_wrist_pitch_joint" actuator="right_wrist_pitch_joint"/>
+    <actuatorfrc name="u_right_wrist_yaw_joint" actuator="right_wrist_yaw_joint"/>
+    <actuatorfrc name="u_neck_yaw_joint" actuator="neck_yaw_joint"/>
+    <actuatorfrc name="u_neck_roll_joint" actuator="neck_roll_joint"/>
+    <actuatorfrc name="u_neck_pitch_joint" actuator="neck_pitch_joint"/>
+  </sensor>
+  
+  <contact>
+    <exclude body1="chest_link" body2="waist_yaw_link"/>
+    <exclude body1="waist_yaw_link" body2="waist_left_passive_link"/>
+    <exclude body1="waist_yaw_link" body2="waist_right_passive_link"/>
+
+    <exclude body1="neck_pitch_link" body2="neck_yaw_link"/>
+
+    <exclude body1="left_wrist_roll_link" body2="left_wrist_yaw_link"/>
+    <exclude body1="right_wrist_roll_link" body2="right_wrist_yaw_link"/>
+  </contact>
+  <equality>
+    <connect site1="closing_waist_left_passive2_joint_1" site2="closing_waist_left_passive2_joint_2" solref="0.002 1" solimp="0.9 0.9 0.01"/>
+    <connect site1="closing_waist_right_passive2_joint_1" site2="closing_waist_right_passive2_joint_2" solref="0.002 1" solimp="0.9 0.9 0.01"/>
+  </equality>

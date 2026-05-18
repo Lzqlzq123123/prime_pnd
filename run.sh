@@ -93,8 +93,8 @@ validate_algorithm() {
 }
 # Function to check if ROS environment is properly sourced
 check_ros_environment() {
-    if [ ! -f "/opt/ros/humble/setup.bash" ]; then
-        print_error "ROS Humble not found at /opt/ros/humble/setup.bash"
+    if [ ! -f "/opt/ros/jazzy/setup.bash" ]; then
+        print_error "ROS Jazzy not found at /opt/ros/jazzy/setup.bash"
         exit 1
     fi
     
@@ -190,7 +190,7 @@ main() {
     
     # Source ROS environment
     print_info "Sourcing ROS environment..."
-    source /opt/ros/humble/setup.bash
+    source /opt/ros/jazzy/setup.bash
     source install/setup.bash
     export ROS_LOCALHOST_ONLY=1
     source .venv/bin/activate || true

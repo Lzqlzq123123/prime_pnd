@@ -1,0 +1,54 @@
+# PrimeU Robot Teleoperation Configuration - FAST MODE
+# 优化版本：降低 IK 权重和约束数量，提升性能
+
+ik_cfg:
+  # 只保留最关键的追踪点，减少 IK 求解复杂度
+
+  # 左手腕 - 主要控制点
+  - adam_link_name: "left_wrist_yaw_link"
+    bone_name: "LHR-6E8EC1F7"
+    position_cost: 15.0      # 从 20.0 降低
+    orientation_cost: 12.0   # 从 18.0 降低
+    pos_offset: [0.0, 0.0, 0.0]
+    rot_offset: [-0.0091, -0.6852, 0.7236, -0.0821]
+
+  # 右手腕 - 主要控制点
+  - adam_link_name: "right_wrist_yaw_link"
+    bone_name: "LHR-4622FDDD" 
+    position_cost: 15.0      # 从 20.0 降低
+    orientation_cost: 12.0   # 从 18.0 降低
+    pos_offset: [0.0, 0.0, 0.0]
+    rot_offset: [0.0572, 0.2412, 0.9564, 0.1546]
+
+# 碰撞避免配置 - 禁用以提升性能
+collision_cfg: []
+
+# 速度限制 - 降低以减少求解难度
+velocity_limit:
+  # 腰部关节
+  "waist_yaw_joint": 6              # 从 8 降低
+  "waist_roll_passive_joint": 4     # 从 5 降低
+  "waist_pitch_passive_joint": 4    # 从 5 降低
+
+  # 左臂关节
+  "left_shoulder_pitch_joint": 8    # 从 10 降低
+  "left_shoulder_roll_joint": 8
+  "left_shoulder_yaw_joint": 8
+  "left_elbow_pitch_joint": 8
+  "left_wrist_roll_joint": 7        # 从 9 降低
+  "left_wrist_pitch_joint": 7
+  "left_wrist_yaw_joint": 7
+
+  # 右臂关节
+  "right_shoulder_pitch_joint": 8
+  "right_shoulder_roll_joint": 8
+  "right_shoulder_yaw_joint": 8
+  "right_elbow_pitch_joint": 8
+  "right_wrist_roll_joint": 7
+  "right_wrist_pitch_joint": 7
+  "right_wrist_yaw_joint": 7
+
+  # 颈部关节
+  "neck_yaw_joint": 6               # 从 8 降低
+  "neck_roll_joint": 6
+  "neck_pitch_joint": 6

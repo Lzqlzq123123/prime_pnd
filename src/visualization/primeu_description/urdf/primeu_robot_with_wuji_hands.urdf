@@ -1,0 +1,2377 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="primeu_robot">
+  <link name="body_base_link">
+    <inertial>
+      <origin xyz="-4.20726e-05 -9.03729e-06 0.422113" rpy="0 0 0" />
+      <mass value="76.8996" />
+      <inertia ixx="8.30255" ixy="-0.000118077" ixz="-0.000419172" iyy="7.32437" iyz="-0.000193969" izz="2.45005" />
+    </inertial>
+    <visual>
+      <origin xyz="-4.20726e-05 -9.03729e-06 0.422113" rpy="0 -0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/body_base_link_visual.stl" />
+      </geometry>
+      <material name="body_base_link_parts_material">
+        <color rgba="0.623029 0.814339 0.929126 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-4.20726e-05 -9.03729e-06 0.422113" rpy="0 -0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/body_base_link_collision.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="waist_yaw_link">
+    <inertial>
+      <origin xyz="6.96649e-09 0.0176858 0.0185467" rpy="0 0 0" />
+      <mass value="0.318626" />
+      <inertia ixx="0.000368773" ixy="-9.75394e-11" ixz="1.12765e-11" iyy="0.000823063" iyz="-7.3433e-05" izz="0.0010301" />
+    </inertial>
+    <visual>
+      <origin xyz="6.96649e-09 0.0176858 0.0185467" rpy="-2.97096e-13 1.37002e-13 -1.5708" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/waist_yaw_link_visual.stl" />
+      </geometry>
+      <material name="waist_yaw_link_parts_material">
+        <color rgba="0.62997 0.641781 0.667579 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="6.96649e-09 0.0176858 0.0185467" rpy="-2.97096e-13 1.37002e-13 -1.5708" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/waist_yaw_link_collision.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="closing_waist_left_passive2_joint_1">
+    <origin xyz="0 0 0" rpy="0 -0 0" />
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1e-9" />
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+    </inertial>
+  </link>
+  <joint name="closing_waist_left_passive2_joint_1_frame" type="fixed">
+    <origin xyz="0.088 0.05 0.035" rpy="-1.5708 -1.80855e-13 -3.14159" />
+    <parent link="waist_yaw_link" />
+    <child link="closing_waist_left_passive2_joint_1" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="closing_waist_right_passive2_joint_1">
+    <origin xyz="0 0 0" rpy="0 -0 0" />
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1e-9" />
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+    </inertial>
+  </link>
+  <joint name="closing_waist_right_passive2_joint_1_frame" type="fixed">
+    <origin xyz="-0.088 0.05 0.035" rpy="-1.5708 -1.21791e-13 -3.14159" />
+    <parent link="waist_yaw_link" />
+    <child link="closing_waist_right_passive2_joint_1" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="waist_roll_link">
+    <inertial>
+      <origin xyz="-5.81324e-13 -1.64807e-16 0.0177" rpy="0 0 0" />
+      <mass value="0.125178" />
+      <inertia ixx="1.24231e-05" ixy="9.2054e-19" ixz="-2.72412e-16" iyy="2.84421e-05" iyz="9.3826e-19" izz="2.01802e-05" />
+    </inertial>
+    <visual>
+      <origin xyz="-5.81324e-13 0 0.0177" rpy="-1.5708 -1.5708 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/waist_roll_link_visual.stl" />
+      </geometry>
+      <material name="waist_roll_link_parts_material">
+        <color rgba="0.81186 0.895376 0.942702 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-5.81324e-13 0 0.0177" rpy="-1.5708 -1.5708 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/waist_roll_link_collision.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="chest_link">
+    <inertial>
+      <origin xyz="0.00598813 0.153501 0.0231031" rpy="0 0 0" />
+      <mass value="8.27946" />
+      <inertia ixx="0.119436" ixy="-0.00499883" ixz="4.07256e-05" iyy="0.0529458" iyz="-2.85322e-05" izz="0.0772233" />
+    </inertial>
+    <visual>
+      <origin xyz="0.00598813 0.153501 0.0231031" rpy="1.5708 -1.24079e-13 -3.14159" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/chest_link_visual.stl" />
+      </geometry>
+      <material name="chest_link_parts_material">
+        <color rgba="0.775413 0.837045 0.865614 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.00598813 0.153501 0.0231031" rpy="1.5708 -1.24079e-13 -3.14159" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/chest_link_collision.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="waist_left_link">
+    <inertial>
+      <origin xyz="2.84367e-07 -0.0221506 -0.0066566" rpy="0 0 0" />
+      <mass value="0.0904052" />
+      <inertia ixx="8.85019e-05" ixy="6.68215e-10" ixz="1.74121e-10" iyy="3.64587e-05" iyz="-1.35386e-05" izz="0.000109689" />
+    </inertial>
+    <visual>
+      <origin xyz="2.84367e-07 -0.0221506 -0.0066566" rpy="-1.5708 9.95384e-14 1.5708" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/waist_left_link_visual.stl" />
+      </geometry>
+      <material name="waist_left_link_parts_material">
+        <color rgba="0.651753 0.797067 0.884255 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="2.84367e-07 -0.0221506 -0.0066566" rpy="-1.5708 9.95384e-14 1.5708" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/waist_left_link_collision.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="waist_left_passive1_joint_link_x">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1e-09" />
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09" />
+    </inertial>
+  </link>
+  <link name="waist_left_passive1_joint_link_y">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1e-09" />
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09" />
+    </inertial>
+  </link>
+  <link name="waist_left_passive_link">
+    <inertial>
+      <origin xyz="0.00782784 -0.0357958 -0.000151758" rpy="0 0 0" />
+      <mass value="0.029442" />
+      <inertia ixx="2.28696e-05" ixy="6.4948e-06" ixz="2.77059e-08" iyy="3.44733e-06" iyz="-9.07758e-08" izz="2.4643e-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0.00782784 -0.0357958 -0.000151758" rpy="3.14159 1.57078 -1.5708" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/waist_left_passive_link_visual.stl" />
+      </geometry>
+      <material name="waist_left_passive_link_parts_material">
+        <color rgba="0.410396 0.459373 0.566349 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.00782784 -0.0357958 -0.000151758" rpy="3.14159 1.57078 -1.5708" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/waist_left_passive_link_collision.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="closing_waist_left_passive2_joint_2">
+    <origin xyz="0 0 0" rpy="0 -0 0" />
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1e-9" />
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+    </inertial>
+  </link>
+  <joint name="closing_waist_left_passive2_joint_2_frame" type="fixed">
+    <origin xyz="0.02 -0.0699994 -0.0002991" rpy="-3.13746 0.000490521 2.06093e-06" />
+    <parent link="waist_left_passive_link" />
+    <child link="closing_waist_left_passive2_joint_2" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <joint name="waist_left_passive1_joint_z" type="revolute">
+    <origin xyz="0 2.22045e-16 0" rpy="-1.69407e-21 1.08299e-29 0" />
+    <parent link="waist_left_passive1_joint_link_y" />
+    <child link="waist_left_passive_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="10" velocity="10" lower="-3.141592653589793" upper="3.141592653589793" />
+  </joint>
+  <joint name="waist_left_passive1_joint_y" type="revolute">
+    <origin xyz="0 2.22045e-16 0" rpy="-1.69407e-21 1.08299e-29 0" />
+    <parent link="waist_left_passive1_joint_link_x" />
+    <child link="waist_left_passive1_joint_link_y" />
+    <axis xyz="0 1 0" />
+    <limit effort="10" velocity="10" lower="-3.141592653589793" upper="3.141592653589793" />
+  </joint>
+  <joint name="waist_left_passive1_joint_x" type="revolute">
+    <origin xyz="6.42849e-07 -0.05 -0.0205" rpy="1.57081 -1.5708 0" />
+    <parent link="waist_left_link" />
+    <child link="waist_left_passive1_joint_link_x" />
+    <axis xyz="1 0 0" />
+    <limit effort="10" velocity="10" lower="-3.141592653589793" upper="3.141592653589793" />
+  </joint>
+  <joint name="waist_left_joint" type="revolute">
+    <origin xyz="8.59392e-12 0.07 0.1105" rpy="3.14159 -5.9952e-14 -1.5708" />
+    <parent link="chest_link" />
+    <child link="waist_left_link" />
+    <axis xyz="0 0 -1" />
+    <limit effort="96" velocity="3.92699" lower="-1.04718" upper="0.610878" />
+    <joint_properties friction="0.5" />
+  </joint>
+  <link name="waist_right_link">
+    <inertial>
+      <origin xyz="2.85212e-07 0.0221506 -0.0066566" rpy="0 0 0" />
+      <mass value="0.0904052" />
+      <inertia ixx="8.85019e-05" ixy="-6.70022e-10" ixz="1.7401e-10" iyy="3.64587e-05" iyz="1.35386e-05" izz="0.000109689" />
+    </inertial>
+    <visual>
+      <origin xyz="2.85212e-07 0.0221506 -0.0066566" rpy="1.5708 -9.95384e-14 -1.5708" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/waist_right_link_visual.stl" />
+      </geometry>
+      <material name="waist_right_link_parts_material">
+        <color rgba="0.651753 0.797067 0.884255 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="2.85212e-07 0.0221506 -0.0066566" rpy="1.5708 -9.95384e-14 -1.5708" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/waist_right_link_collision.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="waist_right_passive1_joint_link_x">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1e-09" />
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09" />
+    </inertial>
+  </link>
+  <link name="waist_right_passive1_joint_link_y">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1e-09" />
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09" />
+    </inertial>
+  </link>
+  <link name="waist_right_passive_link">
+    <inertial>
+      <origin xyz="-0.00782784 -0.0357958 -0.000148717" rpy="0 0 0" />
+      <mass value="0.029442" />
+      <inertia ixx="2.28696e-05" ixy="-6.4948e-06" ixz="-2.76119e-08" iyy="3.44734e-06" iyz="-9.13537e-08" izz="2.4643e-05" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.00782784 -0.0357958 -0.000148717" rpy="3.14159 1.57078 -1.5708" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/waist_right_passive_link_visual.stl" />
+      </geometry>
+      <material name="waist_right_passive_link_parts_material">
+        <color rgba="0.410396 0.459373 0.566349 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.00782784 -0.0357958 -0.000148717" rpy="3.14159 1.57078 -1.5708" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/waist_right_passive_link_collision.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="closing_waist_right_passive2_joint_2">
+    <origin xyz="0 0 0" rpy="0 -0 0" />
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1e-9" />
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+    </inertial>
+  </link>
+  <joint name="closing_waist_right_passive2_joint_2_frame" type="fixed">
+    <origin xyz="-0.02 -0.0699994 -0.0002991" rpy="-3.13783 -0.00177193 -7.12208e-06" />
+    <parent link="waist_right_passive_link" />
+    <child link="closing_waist_right_passive2_joint_2" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <joint name="waist_right_passive1_joint_z" type="revolute">
+    <origin xyz="0 0 0" rpy="0 2.09079e-30 0" />
+    <parent link="waist_right_passive1_joint_link_y" />
+    <child link="waist_right_passive_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="10" velocity="10" lower="-3.141592653589793" upper="3.141592653589793" />
+  </joint>
+  <joint name="waist_right_passive1_joint_y" type="revolute">
+    <origin xyz="0 0 0" rpy="0 2.09079e-30 0" />
+    <parent link="waist_right_passive1_joint_link_x" />
+    <child link="waist_right_passive1_joint_link_y" />
+    <axis xyz="0 1 0" />
+    <limit effort="10" velocity="10" lower="-3.141592653589793" upper="3.141592653589793" />
+  </joint>
+  <joint name="waist_right_passive1_joint_x" type="revolute">
+    <origin xyz="6.42849e-07 0.05 -0.0205" rpy="-1.57078 1.5708 0" />
+    <parent link="waist_right_link" />
+    <child link="waist_right_passive1_joint_link_x" />
+    <axis xyz="1 0 0" />
+    <limit effort="10" velocity="10" lower="-3.141592653589793" upper="3.141592653589793" />
+  </joint>
+  <joint name="waist_right_joint" type="revolute">
+    <origin xyz="-8.58013e-12 0.07 -0.0645" rpy="-2.45405e-14 -5.9952e-14 -1.5708" />
+    <parent link="chest_link" />
+    <child link="waist_right_link" />
+    <axis xyz="0 0 -1" />
+    <limit effort="96" velocity="3.92699" lower="-0.610878" upper="1.04718" />
+    <joint_properties friction="0.5" />
+  </joint>
+  <link name="left_shoulder_pitch_link">
+    <inertial>
+      <origin xyz="0.00445247 -0.00401905 0.0555302" rpy="0 0 0" />
+      <mass value="1.61013" />
+      <inertia ixx="0.00169156" ixy="-6.04835e-05" ixz="-1.91261e-05" iyy="0.00169393" iyz="3.84532e-05" izz="0.00136864" />
+    </inertial>
+    <visual>
+      <origin xyz="0.00445247 -0.00401905 0.0555302" rpy="1.39626 -8.25596e-14 -3.14159" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/left_shoulder_pitch_link_visual.stl" />
+      </geometry>
+      <material name="left_shoulder_pitch_link_parts_material">
+        <color rgba="0.661727 0.814348 0.901578 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.00445247 -0.00401905 0.0555302" rpy="1.39626 -8.25596e-14 -3.14159" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/left_shoulder_pitch_link_collision.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_shoulder_roll_link">
+    <inertial>
+      <origin xyz="-0.113042 1.86932e-05 -0.0428809" rpy="0 0 0" />
+      <mass value="1.23133" />
+      <inertia ixx="0.0010626" ixy="-4.20698e-07" ixz="-5.54234e-06" iyy="0.00194814" iyz="1.63617e-07" izz="0.00180368" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.113042 1.86932e-05 -0.0428809" rpy="2.96706 0.785398 -2.61799" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/left_shoulder_roll_link_visual.stl" />
+      </geometry>
+      <material name="left_shoulder_roll_link_parts_material">
+        <color rgba="0.495831 0.510254 0.526236 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.113042 1.86932e-05 -0.0428809" rpy="2.96706 0.785398 -2.61799" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/left_shoulder_roll_link_collision.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_shoulder_yaw_link">
+    <inertial>
+      <origin xyz="0.00144727 0.00119292 0.0961527" rpy="0 0 0" />
+      <mass value="1.32768" />
+      <inertia ixx="0.00221382" ixy="4.50044e-07" ixz="-2.45225e-05" iyy="0.00222585" iyz="5.42601e-05" izz="0.000940724" />
+    </inertial>
+    <visual>
+      <origin xyz="0.00144727 0.00119292 0.0961527" rpy="2.28234 -0.659058 -1.10715" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/left_shoulder_yaw_link_visual.stl" />
+      </geometry>
+      <material name="left_shoulder_yaw_link_parts_material">
+        <color rgba="0.534608 0.588362 0.619697 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.00144727 0.00119292 0.0961527" rpy="2.28234 -0.659058 -1.10715" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/left_shoulder_yaw_link_collision.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_elbow_pitch_link">
+    <inertial>
+      <origin xyz="-0.0818905 0.000647018 -0.0402032" rpy="0 0 0" />
+      <mass value="1.17763" />
+      <inertia ixx="0.00094916" ixy="-1.58858e-05" ixz="-3.04234e-05" iyy="0.00125269" iyz="7.52023e-08" izz="0.00115385" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.0818905 0.000647018 -0.0402032" rpy="-2.13293 -0.361367 2.82057" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/left_elbow_pitch_link_visual.stl" />
+      </geometry>
+      <material name="left_elbow_pitch_link_parts_material">
+        <color rgba="0.540973 0.537254 0.515031 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.0818905 0.000647018 -0.0402032" rpy="-2.13293 -0.361367 2.82057" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/left_elbow_pitch_link_collision.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_wrist_roll_link">
+    <inertial>
+      <origin xyz="-7.42692e-11 0.000278379 0.0385646" rpy="0 0 0" />
+      <mass value="0.404705" />
+      <inertia ixx="0.000421826" ixy="-6.65218e-12" ixz="-1.68616e-12" iyy="0.00034236" iyz="1.62664e-05" izz="0.000208792" />
+    </inertial>
+    <visual>
+      <origin xyz="-7.42693e-11 0.000278379 0.0385646" rpy="0.253905 -1.09217 2.26642" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/left_wrist_roll_link_visual.stl" />
+      </geometry>
+      <material name="left_wrist_roll_link_parts_material">
+        <color rgba="0.616041 0.753599 0.806876 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-7.42693e-11 0.000278379 0.0385646" rpy="0.253905 -1.09217 2.26642" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/left_wrist_roll_link_collision.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_wrist_pitch_link">
+    <inertial>
+      <origin xyz="-0.00106391 -2.33323e-11 0.0219286" rpy="0 0 0" />
+      <mass value="0.304398" />
+      <inertia ixx="8.08739e-05" ixy="1.64597e-11" ixz="5.38408e-07" iyy="0.000118571" iyz="4.41999e-12" izz="0.000107519" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.00106391 -2.33324e-11 0.0219286" rpy="-2.13293 -0.361367 1.24977" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/left_wrist_pitch_link_visual.stl" />
+      </geometry>
+      <material name="left_wrist_pitch_link_parts_material">
+        <color rgba="0.637078 0.780124 0.849341 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.00106391 -2.33324e-11 0.0219286" rpy="-2.13293 -0.361367 1.24977" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/left_wrist_pitch_link_collision.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_wrist_yaw_link">
+    <inertial>
+      <origin xyz="-1.12308e-10 0.0267049 0.0302175" rpy="0 0 0" />
+      <mass value="0.0547065" />
+      <inertia ixx="5.07331e-05" ixy="3.12122e-13" ixz="-2.86228e-11" iyy="4.43376e-05" iyz="2.44558e-07" izz="2.14007e-05" />
+    </inertial>
+    <visual>
+      <origin xyz="-1.12308e-10 0.0267049 0.0302175" rpy="2.46243 -0.299623 1.94985" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/left_wrist_yaw_link_visual.stl" />
+      </geometry>
+      <material name="left_wrist_yaw_link_parts_material">
+        <color rgba="0.594174 0.694485 0.754671 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-1.12308e-10 0.0267049 0.0302175" rpy="2.46243 -0.299623 1.94985" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/left_wrist_yaw_link_collision.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_hand">
+    <origin xyz="0 0 0" rpy="0 -0 0" />
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1e-9" />
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+    </inertial>
+  </link>
+  <joint name="left_hand_frame" type="fixed">
+    <origin xyz="-2.07612e-14 0.0485 0.03005" rpy="1.5708 -1.66533e-16 -3.14159" />
+    <parent link="left_wrist_yaw_link" />
+    <child link="left_hand" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <joint name="left_wrist_yaw_joint" type="revolute">
+    <origin xyz="-0.03155 2.88658e-15 0.022" rpy="-1.11022e-16 1.5708 0" />
+    <parent link="left_wrist_pitch_link" />
+    <child link="left_wrist_yaw_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="4.8" velocity="4.18879" lower="-0.6108652382" upper="1.5708" />
+    <joint_properties friction="0.5" />
+  </joint>
+  <joint name="left_wrist_pitch_joint" type="revolute">
+    <origin xyz="-5.44009e-15 -0.022 0.099" rpy="1.5708 5.1964e-13 -3.14159" />
+    <parent link="left_wrist_roll_link" />
+    <child link="left_wrist_pitch_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="4.8" velocity="4.18879" lower="-0.785398" upper="0.785398" />
+    <joint_properties friction="0.5" />
+  </joint>
+  <joint name="left_wrist_roll_joint" type="revolute">
+    <origin xyz="-0.124 -2.85327e-14 -0.0405" rpy="1.5708 -9.24261e-14 -1.5708" />
+    <parent link="left_elbow_pitch_link" />
+    <child link="left_wrist_roll_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="23" velocity="6.28319" lower="-1.5708" upper="1.5708" />
+    <joint_properties friction="0.5" />
+  </joint>
+  <joint name="left_elbow_pitch_joint" type="revolute">
+    <origin xyz="0.0405 -2.60902e-14 0.11" rpy="1.5708 0.392699 1.5708" />
+    <parent link="left_shoulder_yaw_link" />
+    <child link="left_elbow_pitch_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="23" velocity="6.28319" lower="-1.1781" upper="1.1781" />
+    <joint_properties friction="0.5" />
+  </joint>
+  <joint name="left_shoulder_yaw_joint" type="revolute">
+    <origin xyz="-0.16 -8.10463e-14 -0.043" rpy="1.5708 -5.08538e-13 -1.5708" />
+    <parent link="left_shoulder_roll_link" />
+    <child link="left_shoulder_yaw_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="23" velocity="6.28319" lower="-1.5708" upper="1.5708" />
+    <joint_properties friction="0.5" />
+  </joint>
+  <joint name="left_shoulder_roll_joint" type="revolute">
+    <origin xyz="0.0311127 -0.0311127 0.06" rpy="1.5708 0.523599 0.785398" />
+    <parent link="left_shoulder_pitch_link" />
+    <child link="left_shoulder_roll_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="70" velocity="3.14159" lower="-1.0472" upper="1.0472" />
+    <joint_properties friction="0.5" />
+  </joint>
+  <joint name="left_shoulder_pitch_joint" type="revolute">
+    <origin xyz="0.01443 0.247814 0.160316" rpy="-0.174533 6.17326e-15 -1.36416e-15" />
+    <parent link="chest_link" />
+    <child link="left_shoulder_pitch_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="70" velocity="3.14159" lower="-2.35619" upper="2.35619" />
+    <joint_properties friction="0.5" />
+  </joint>
+  <link name="right_shoulder_pitch_link">
+    <inertial>
+      <origin xyz="-0.00435028 -0.00412125 0.0556137" rpy="0 0 0" />
+      <mass value="1.61012" />
+      <inertia ixx="0.00169967" ixy="6.05419e-05" ixz="2.11785e-05" iyy="0.00168831" iyz="4.20073e-05" izz="0.00136875" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.00435028 -0.00412125 0.0556137" rpy="-1.39626 1.06657e-13 -2.04409e-13" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/right_shoulder_pitch_link_visual.stl" />
+      </geometry>
+      <material name="right_shoulder_pitch_link_parts_material">
+        <color rgba="0.666158 0.787435 0.786963 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.00435028 -0.00412125 0.0556137" rpy="-1.39626 1.06657e-13 -2.04409e-13" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/right_shoulder_pitch_link_collision.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_shoulder_roll_link">
+    <inertial>
+      <origin xyz="-0.113042 -1.86911e-05 -0.0428187" rpy="0 0 0" />
+      <mass value="1.23133" />
+      <inertia ixx="0.00106257" ixy="4.20577e-07" ixz="-7.26269e-06" iyy="0.00194811" iyz="1.56805e-07" izz="0.00180368" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.113042 -1.86911e-05 -0.0428187" rpy="-2.96706 0.785398 2.61799" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/right_shoulder_roll_link_visual.stl" />
+      </geometry>
+      <material name="right_shoulder_roll_link_parts_material">
+        <color rgba="0.524464 0.533979 0.539688 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.113042 -1.86911e-05 -0.0428187" rpy="-2.96706 0.785398 2.61799" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/right_shoulder_roll_link_collision.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_shoulder_yaw_link">
+    <inertial>
+      <origin xyz="-0.00144725 0.00119294 0.096095" rpy="0 0 0" />
+      <mass value="1.32768" />
+      <inertia ixx="0.0022117" ixy="-4.50574e-07" ixz="2.68485e-05" iyy="0.00222373" iyz="5.44907e-05" izz="0.000940725" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.00144725 0.00119294 0.096095" rpy="-2.28234 -0.659058 -2.03444" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/right_shoulder_yaw_link_visual.stl" />
+      </geometry>
+      <material name="right_shoulder_yaw_link_parts_material">
+        <color rgba="0.579661 0.60817 0.621792 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.00144725 0.00119294 0.096095" rpy="-2.28234 -0.659058 -2.03444" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/right_shoulder_yaw_link_collision.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_elbow_pitch_link">
+    <inertial>
+      <origin xyz="-0.0818905 -0.000712004 -0.0402032" rpy="0 0 0" />
+      <mass value="1.17763" />
+      <inertia ixx="0.000949056" ixy="1.79772e-05" ixz="-3.04229e-05" iyy="0.00125269" iyz="-4.18437e-07" izz="0.00115375" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.0818905 -0.000712004 -0.0402032" rpy="2.13293 -0.361367 -2.82057" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/right_elbow_pitch_link_visual.stl" />
+      </geometry>
+      <material name="right_elbow_pitch_link_parts_material">
+        <color rgba="0.588878 0.529825 0.457356 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.0818905 -0.000712004 -0.0402032" rpy="2.13293 -0.361367 -2.82057" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/right_elbow_pitch_link_collision.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_wrist_roll_link">
+    <inertial>
+      <origin xyz="1.97018e-10 -0.000317914 0.0385646" rpy="0 0 0" />
+      <mass value="0.404705" />
+      <inertia ixx="0.000420807" ixy="-5.82532e-12" ixz="1.70915e-12" iyy="0.00034236" iyz="-1.57794e-05" izz="0.000207773" />
+    </inertial>
+    <visual>
+      <origin xyz="1.97018e-10 -0.000317914 0.0385646" rpy="-0.253905 -1.09217 -2.26642" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/right_wrist_roll_link_visual.stl" />
+      </geometry>
+      <material name="right_wrist_roll_link_parts_material">
+        <color rgba="0.650084 0.792364 0.881286 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="1.97018e-10 -0.000317914 0.0385646" rpy="-0.253905 -1.09217 -2.26642" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/right_wrist_roll_link_collision.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_wrist_ptich_link">
+    <inertial>
+      <origin xyz="-0.00106391 -1.95311e-10 0.0220599" rpy="0 0 0" />
+      <mass value="0.304398" />
+      <inertia ixx="8.08744e-05" ixy="3.53192e-13" ixz="-5.34681e-07" iyy="0.000118571" iyz="-9.46581e-11" izz="0.000107519" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.00106391 -1.95311e-10 0.0220599" rpy="2.13293 -0.361367 1.89182" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/right_wrist_ptich_link_visual.stl" />
+      </geometry>
+      <material name="right_wrist_ptich_link_parts_material">
+        <color rgba="0.698304 0.762657 0.745079 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.00106391 -1.95311e-10 0.0220599" rpy="2.13293 -0.361367 1.89182" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/right_wrist_ptich_link_collision.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_wrist_yaw_link">
+    <inertial>
+      <origin xyz="-1.12277e-10 0.0267049 0.0302175" rpy="0 0 0" />
+      <mass value="0.0547065" />
+      <inertia ixx="5.07331e-05" ixy="3.12103e-13" ixz="-2.86228e-11" iyy="4.43376e-05" iyz="2.44558e-07" izz="2.14007e-05" />
+    </inertial>
+    <visual>
+      <origin xyz="-1.12277e-10 0.0267049 0.0302175" rpy="0.679159 0.299623 1.94985" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/right_wrist_yaw_link_visual.stl" />
+      </geometry>
+      <material name="right_wrist_yaw_link_parts_material">
+        <color rgba="0.594174 0.694485 0.754671 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-1.12277e-10 0.0267049 0.0302175" rpy="0.679159 0.299623 1.94985" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/right_wrist_yaw_link_collision.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_hand">
+    <origin xyz="0 0 0" rpy="0 -0 0" />
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1e-9" />
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+    </inertial>
+  </link>
+  <joint name="right_hand_frame" type="fixed">
+    <origin xyz="3.475e-14 0.0485 0.03005" rpy="1.5708 -4.44089e-16 3.14159" />
+    <parent link="right_wrist_yaw_link" />
+    <child link="right_hand" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <joint name="right_wrist_yaw_joint" type="revolute">
+    <origin xyz="-0.03155 2.08722e-14 0.022" rpy="5.47729e-13 1.5708 0" />
+    <parent link="right_wrist_ptich_link" />
+    <child link="right_wrist_yaw_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="4.8" velocity="4.18879" lower="-0.6108652382" upper="1.5708" />
+    <joint_properties friction="0.5" />
+  </joint>
+  <joint name="right_wrist_pitch_joint" type="revolute">
+    <origin xyz="-1.22125e-15 0.022 0.099" rpy="1.5708 2.02616e-14 -8.32667e-16" />
+    <parent link="right_wrist_roll_link" />
+    <child link="right_wrist_ptich_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="4.8" velocity="4.18879" lower="-0.785398" upper="0.785398" />
+    <joint_properties friction="0.5" />
+  </joint>
+  <joint name="right_wrist_roll_joint" type="revolute">
+    <origin xyz="-0.124 -6.69464e-14 -0.0405" rpy="-1.5708 -2.08278e-13 1.5708" />
+    <parent link="right_elbow_pitch_link" />
+    <child link="right_wrist_roll_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="23" velocity="6.28319" lower="-1.5708" upper="1.5708" />
+    <joint_properties friction="0.5" />
+  </joint>
+  <joint name="right_elbow_pitch_joint" type="revolute">
+    <origin xyz="-0.0405 4.20775e-14 0.11" rpy="-1.5708 0.392699 1.5708" />
+    <parent link="right_shoulder_yaw_link" />
+    <child link="right_elbow_pitch_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="23" velocity="6.28319" lower="-1.1781" upper="1.1781" />
+    <joint_properties friction="0.5" />
+  </joint>
+  <joint name="right_shoulder_yaw_joint" type="revolute">
+    <origin xyz="-0.16 3.39728e-14 -0.043" rpy="1.5708 -3.68428e-13 -1.5708" />
+    <parent link="right_shoulder_roll_link" />
+    <child link="right_shoulder_yaw_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="23" velocity="6.28319" lower="-1.5708" upper="1.5708" />
+    <joint_properties friction="0.5" />
+  </joint>
+  <joint name="right_shoulder_roll_joint" type="revolute">
+    <origin xyz="-0.0311127 -0.0311127 0.06" rpy="-1.5708 0.523599 2.35619" />
+    <parent link="right_shoulder_pitch_link" />
+    <child link="right_shoulder_roll_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="70" velocity="3.14159" lower="-1.0472" upper="1.0472" />
+    <joint_properties friction="0.5" />
+  </joint>
+  <joint name="right_shoulder_pitch_joint" type="revolute">
+    <origin xyz="0.01443 0.247814 -0.114316" rpy="2.96706 -5.45373e-14 3.14159" />
+    <parent link="chest_link" />
+    <child link="right_shoulder_pitch_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="70" velocity="3.14159" lower="-2.35619" upper="2.35619" />
+    <joint_properties friction="0.5" />
+  </joint>
+  <link name="neck_yaw_link">
+    <inertial>
+      <origin xyz="3.01692e-05 -2.95874e-08 -0.025262" rpy="0 0 0" />
+      <mass value="9.23497e-05" />
+      <inertia ixx="2.57971e-08" ixy="3.86016e-14" ixz="1.93175e-10" iyy="3.72339e-08" iyz="5.77657e-14" izz="3.71365e-08" />
+    </inertial>
+    <visual>
+      <origin xyz="3.01692e-05 -2.95874e-08 -0.025262" rpy="3.14159 -1.84133e-13 -1.95555e-13" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/neck_yaw_link_visual.stl" />
+      </geometry>
+      <material name="neck_yaw_link_parts_material">
+        <color rgba="0.470469 0.628627 0.781159 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="3.01692e-05 -2.95874e-08 -0.025262" rpy="3.14159 -1.84133e-13 -1.95555e-13" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/neck_yaw_link_collision.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="neck_roll_link">
+    <inertial>
+      <origin xyz="-0.0430653 -0.000214234 0.0303228" rpy="0 0 0" />
+      <mass value="0.000107143" />
+      <inertia ixx="5.21547e-08" ixy="-2.41301e-10" ixz="4.00021e-10" iyy="5.03411e-08" iyz="-6.60546e-13" izz="5.2811e-08" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.0430653 -0.000214234 0.0303228" rpy="-3.15414e-13 -1.5708 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/neck_roll_link_visual.stl" />
+      </geometry>
+      <material name="neck_roll_link_parts_material">
+        <color rgba="0.604479 0.726595 0.787909 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.0430653 -0.000214234 0.0303228" rpy="-3.15414e-13 -1.5708 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/neck_roll_link_collision.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="neck_pitch_link">
+    <inertial>
+      <origin xyz="-0.0597711 0.0161645 0.0287467" rpy="0 0 0" />
+      <mass value="0.645759" />
+      <inertia ixx="0.00323048" ixy="-0.000419023" ixz="2.92028e-06" iyy="0.00321103" iyz="-2.89743e-07" izz="0.00372135" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.0597711 0.0161645 0.0287467" rpy="-1.5708 1.94908e-13 1.5708" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/neck_pitch_link_visual.stl" />
+      </geometry>
+      <material name="neck_pitch_link_parts_material">
+        <color rgba="0.649683 0.685003 0.686591 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.0597711 0.0161645 0.0287467" rpy="-1.5708 1.94908e-13 1.5708" />
+      <geometry>
+        <mesh filename="package://primeu_description/assets/merged/neck_pitch_link_collision.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="neck_pitch_joint" type="revolute">
+    <origin xyz="-0.047 0.0288 0.0303" rpy="1.5708 -1.39145e-15 4.37966e-15" />
+    <parent link="neck_roll_link" />
+    <child link="neck_pitch_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="4.8" velocity="4.18879" lower="-0.7853981634" upper="0.1745329252" />
+    <joint_properties friction="0.5" />
+  </joint>
+  <joint name="neck_roll_joint" type="revolute">
+    <origin xyz="-0.0303 2.17579e-15 -0.0255" rpy="3.14159 -1.5708 0" />
+    <parent link="neck_yaw_link" />
+    <child link="neck_roll_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="4.8" velocity="4.18879" lower="-0.785398" upper="0.785398" />
+    <joint_properties friction="0.5" />
+  </joint>
+  <joint name="neck_yaw_joint" type="revolute">
+    <origin xyz="0.01443 0.35455 0.023" rpy="-1.5708 7.14761e-14 -3.14159" />
+    <parent link="chest_link" />
+    <child link="neck_yaw_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="4.8" velocity="4.18879" lower="-1.5707963268" upper="1.5707963268" />
+    <joint_properties friction="0.5" />
+  </joint>
+  <joint name="waist_pitch_passive_joint" type="revolute">
+    <origin xyz="-0.023 3.10862e-15 0.0177" rpy="-9.71445e-15 1.5708 0" />
+    <parent link="waist_roll_link" />
+    <child link="chest_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="10" velocity="10" lower="-0.6108780951764704" upper="0.5235987755983282" />
+  </joint>
+  <joint name="waist_roll_passive_joint" type="revolute">
+    <origin xyz="-1.61684e-14 0.018 0.035" rpy="1.5708 5.85643e-14 -1.38889e-13" />
+    <parent link="waist_yaw_link" />
+    <child link="waist_roll_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="10" velocity="10" lower="-0.2617993878" upper="0.2617993878" />
+  </joint>
+  <joint name="waist_yaw_joint" type="revolute">
+    <origin xyz="-2.29257e-05 -5.21767e-07 1.08679" rpy="-1.37002e-13 -2.97096e-13 1.5708" />
+    <parent link="body_base_link" />
+    <child link="waist_yaw_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="96" velocity="3.92699" lower="-3.14159" upper="3.14159" />
+    <joint_properties friction="0.5" />
+  </joint>
+  <link name="left_palm_link">
+    <inertial>
+      <origin xyz="-0.0029787944008666 -0.000452551657325986 0.036654705440297" rpy="0 0 0" />
+      <mass value="0.16914" />
+      <inertia ixx="0.00014" ixy="2.54e-06" ixz="6.91e-06" iyy="9.47e-05" iyz="-6.63e-06" izz="6e-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_palm_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_palm_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_finger1_link1">
+    <inertial>
+      <origin xyz="-0.00312584337053766 0.00124334711478157 -0.00755622685821667" rpy="0 0 0" />
+      <mass value="0.0075" />
+      <inertia ixx="3.2e-07" ixy="-2e-08" ixz="0.0" iyy="3e-07" iyz="4e-08" izz="2.3e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger1_link1.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger1_link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_finger1_joint1" type="revolute">
+    <origin xyz="0.00843985365597852 -0.0205866432293554 0.0288928344107784" rpy="1.5023139401368 0.43577167910554 3.11264835810693" />
+    <parent link="left_palm_link" />
+    <child link="left_finger1_link1" />
+    <axis xyz="0 1 0" />
+    <limit lower="0.0583" upper="1.5941" effort="0.4452" velocity="8.587" />
+  </joint>
+  <link name="left_finger1_link2">
+    <inertial>
+      <origin xyz="-0.00142783471547994 1.46615421709184e-05 -0.0156342507741224" rpy="0 0 0" />
+      <mass value="0.0248" />
+      <inertia ixx="2.76e-06" ixy="2e-08" ixz="1e-08" iyy="2.81e-06" iyz="2e-08" izz="6.8e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger1_link2.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger1_link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_finger1_joint2" type="revolute">
+    <origin xyz="-0.0054483 0.0058191 -0.01388" rpy="0.14937 -0.34623 1.5901" />
+    <parent link="left_finger1_link1" />
+    <child link="left_finger1_link2" />
+    <axis xyz="0 -1 0" />
+    <limit lower="-0.1199" upper="0.9335" effort="0.4259" velocity="11.1" />
+  </joint>
+  <link name="left_finger1_link3">
+    <inertial>
+      <origin xyz="0.00112319665690949 1.57299540108416e-05 -0.0130565799894585" rpy="0 0 0" />
+      <mass value="0.0165" />
+      <inertia ixx="1.46e-06" ixy="0.0" ixz="-2e-08" iyy="1.42e-06" iyz="0.0" izz="4.5e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger1_link3.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger1_link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_finger1_joint3" type="revolute">
+    <origin xyz="-0.000846961087777298 0.000991504133990267 -0.0346562987377679" rpy="0.0332538563601251 0.0117623260174173 -1.90877003040037" />
+    <parent link="left_finger1_link2" />
+    <child link="left_finger1_link3" />
+    <axis xyz="0 1 0" />
+    <limit lower="-0.4646" upper="1.5639" effort="0.1888" velocity="13.578" />
+  </joint>
+  <link name="left_finger1_link4">
+    <inertial>
+      <origin xyz="0.00119215114836296 1.41428709807684e-05 -0.00821130287749315" rpy="0 0 0" />
+      <mass value="0.0165" />
+      <inertia ixx="1.18e-06" ixy="0.0" ixz="1.2e-07" iyy="1.25e-06" iyz="0.0" izz="5.1e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger1_link4.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.529411764705882 0.549019607843137 0.549019607843137 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger1_link4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_finger1_joint4" type="revolute">
+    <origin xyz="0 0 -0.0294999998969489" rpy="0 0 0" />
+    <parent link="left_finger1_link3" />
+    <child link="left_finger1_link4" />
+    <axis xyz="0 1 0" />
+    <limit lower="-0.4570" upper="1.5684" effort="0.1468" velocity="12.863" />
+  </joint>
+  <link name="left_finger1_tip_link">
+    <inertial>
+      <origin xyz="-0.000321120906836544 5.07425935932157e-05 0.000622110779642859" rpy="0 0 0" />
+      <mass value="0.0041" />
+      <inertia ixx="5.5e-07" ixy="0.0" ixz="2e-08" iyy="5.2e-07" iyz="0.0" izz="2.7e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger1_tip_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.529411764705882 0.549019607843137 0.549019607843137 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger1_tip_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_finger1_tip_fixed" type="fixed">
+    <origin xyz="0.00104999999999626 0 -0.0235000000000007" rpy="3.14159265358971 0 -3.14159265358979" />
+    <parent link="left_finger1_link4" />
+    <child link="left_finger1_tip_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="left_finger2_link1">
+    <inertial>
+      <origin xyz="-0.00134243892861889 -5.65576364214282e-09 0.000258175161295587" rpy="0 0 0" />
+      <mass value="0.0032" />
+      <inertia ixx="8e-08" ixy="0.0" ixz="-3e-08" iyy="7e-08" iyz="0.0" izz="8e-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger2_link1.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger2_link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_finger2_joint1" type="revolute">
+    <origin xyz="-0.00587008921400943 -0.0294338632807759 0.0919165306703557" rpy="0.110463316505378 -0.0251937198594477 0.223332069867641" />
+    <parent link="left_palm_link" />
+    <child link="left_finger2_link1" />
+    <axis xyz="0 1 0" />
+    <limit lower="-0.1560" upper="1.5619" effort="0.6188" velocity="8.203" />
+  </joint>
+  <link name="left_finger2_link2">
+    <inertial>
+      <origin xyz="-0.00453252206258244 4.38298002711224e-07 0.0209110403187525" rpy="0 0 0" />
+      <mass value="0.033" />
+      <inertia ixx="6.31e-06" ixy="0.0" ixz="-1.6e-07" iyy="6.34e-06" iyz="0.0" izz="8.9e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger2_link2.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger2_link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_finger2_joint2" type="revolute">
+    <origin xyz="0.000389540189408399 0 0.00402230398376657" rpy="0 -0.0462278050739338 0" />
+    <parent link="left_finger2_link1" />
+    <child link="left_finger2_link2" />
+    <axis xyz="-1 0 0" />
+    <limit lower="-0.4095" upper="0.2921" effort="0.1822" velocity="8.115" />
+  </joint>
+  <link name="left_finger2_link3">
+    <inertial>
+      <origin xyz="-0.00112187305056449 -6.72383091306211e-05 0.0157188385130449" rpy="0 0 0" />
+      <mass value="0.0165" />
+      <inertia ixx="1.47e-06" ixy="0.0" ixz="3e-08" iyy="1.44e-06" iyz="0.0" izz="4.5e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger2_link3.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger2_link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_finger2_joint3" type="revolute">
+    <origin xyz="-0.00312502624735005 0.000100282455430194 0.0436176874512652" rpy="0 0 0.000268612717770449" />
+    <parent link="left_finger2_link2" />
+    <child link="left_finger2_link3" />
+    <axis xyz="0 1 0" />
+    <limit lower="-0.4839" upper="1.5466" effort="0.2251" velocity="13.578" />
+  </joint>
+  <link name="left_finger2_link4">
+    <inertial>
+      <origin xyz="-0.000894378084124292 -8.29346633020867e-05 0.00535175866484416" rpy="0 0 0" />
+      <mass value="0.014" />
+      <inertia ixx="9.5e-07" ixy="0.0" ixz="1.4e-07" iyy="8.6e-07" iyz="-1e-08" izz="3e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger2_link4.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.529411764705882 0.549019607843137 0.549019607843137 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger2_link4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_finger2_joint4" type="revolute">
+    <origin xyz="0 0 0.0294999999999921" rpy="0 0 0" />
+    <parent link="left_finger2_link3" />
+    <child link="left_finger2_link4" />
+    <axis xyz="0 1 0" />
+    <limit lower="-0.4723" upper="1.5754" effort="0.2170" velocity="12.863" />
+  </joint>
+  <link name="left_finger2_tip_link">
+    <inertial>
+      <origin xyz="0.000717599084723131 -8.44809051070428e-06 -0.00585768176210114" rpy="0 0 0" />
+      <mass value="0.00318" />
+      <inertia ixx="2e-07" ixy="0.0" ixz="0.0" iyy="2.1e-07" iyz="0.0" izz="1.3e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger2_tip_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.529411764705882 0.549019607843137 0.549019607843137 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger2_tip_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_finger2_tip_fixed" type="fixed">
+    <origin xyz="-0.00199999998882132 -9.99999775618474E-05 0.0239466139626726" rpy="0 0 0" />
+    <parent link="left_finger2_link4" />
+    <child link="left_finger2_tip_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="left_finger3_link1">
+    <inertial>
+      <origin xyz="-0.00135189648465354 -1.49581419299494e-08 0.000202846484209235" rpy="0 0 0" />
+      <mass value="0.0032" />
+      <inertia ixx="8e-08" ixy="0.0" ixz="-3e-08" iyy="7e-08" iyz="0.0" izz="8e-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger3_link1.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger3_link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_finger3_joint1" type="revolute">
+    <origin xyz="-0.01046 -0.0074615 0.089544" rpy="5.0693E-05 0 -0.00057944" />
+    <parent link="left_palm_link" />
+    <child link="left_finger3_link1" />
+    <axis xyz="0 1 0" />
+    <limit lower="-0.1569" upper="1.5536" effort="0.6494" velocity="8.203" />
+  </joint>
+  <link name="left_finger3_link2">
+    <inertial>
+      <origin xyz="-0.00633780329162388 3.07421349281852e-06 0.0204364275125137" rpy="0 0 0" />
+      <mass value="0.033" />
+      <inertia ixx="6.31e-06" ixy="0.0" ixz="-1.6e-07" iyy="6.34e-06" iyz="0.0" izz="8.9e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger3_link2.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger3_link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_finger3_joint2" type="revolute">
+    <origin xyz="0.000224188923157675 0 0.00403489896760838" rpy="0 -0.0872664630099629 0" />
+    <parent link="left_finger3_link1" />
+    <child link="left_finger3_link2" />
+    <axis xyz="-1 0 0" />
+    <limit lower="-0.3977" upper="0.3115" effort="0.1827" velocity="8.115" />
+  </joint>
+  <link name="left_finger3_link3">
+    <inertial>
+      <origin xyz="-0.00112187206031908 -6.72195699478878e-05 0.0157188383883545" rpy="0 0 0" />
+      <mass value="0.0165" />
+      <inertia ixx="1.47e-06" ixy="0.0" ixz="3e-08" iyy="1.44e-06" iyz="0.0" izz="4.5e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger3_link3.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger3_link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_finger3_joint3" type="revolute">
+    <origin xyz="-0.00312502618421547 0.000100282625113788 0.0436176874508615" rpy="0 0 0.000268612717747223" />
+    <parent link="left_finger3_link2" />
+    <child link="left_finger3_link3" />
+    <axis xyz="0 1 0" />
+    <limit lower="-0.4847" upper="1.5411" effort="0.2078" velocity="13.578" />
+  </joint>
+  <link name="left_finger3_link4">
+    <inertial>
+      <origin xyz="-0.000894360550804676 -8.29500264891304e-05 0.00535176646607979" rpy="0 0 0" />
+      <mass value="0.014" />
+      <inertia ixx="9.5e-07" ixy="0.0" ixz="1.4e-07" iyy="8.6e-07" iyz="-1e-08" izz="3e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger3_link4.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.529411764705882 0.549019607843137 0.549019607843137 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger3_link4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_finger3_joint4" type="revolute">
+    <origin xyz="0 0 0.0294999999999998" rpy="0 0 0" />
+    <parent link="left_finger3_link3" />
+    <child link="left_finger3_link4" />
+    <axis xyz="0 1 0" />
+    <limit lower="-0.4671" upper="1.5788" effort="0.2018" velocity="12.863" />
+  </joint>
+  <link name="left_finger3_tip_link">
+    <inertial>
+      <origin xyz="0.000762258859382664 -7.6173785743764e-07 -0.00585762976136608" rpy="0 0 0" />
+      <mass value="0.00318" />
+      <inertia ixx="2e-07" ixy="0.0" ixz="0.0" iyy="2.1e-07" iyz="0.0" izz="1.3e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger3_tip_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.529411764705882 0.549019607843137 0.549019607843137 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger3_tip_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_finger3_tip_fixed" type="fixed">
+    <origin xyz="-0.00199999998882053 -9.99999999926624E-05 0.0239466139625789" rpy="0 0 0" />
+    <parent link="left_finger3_link4" />
+    <child link="left_finger3_tip_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="left_finger4_link1">
+    <inertial>
+      <origin xyz="-0.00135118675339803 -9.65326286614387e-09 0.000207528544014832" rpy="0 0 0" />
+      <mass value="0.0032" />
+      <inertia ixx="8e-08" ixy="0.0" ixz="-3e-08" iyy="7e-08" iyz="0.0" izz="8e-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger4_link1.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger4_link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_finger4_joint1" type="revolute">
+    <origin xyz="-0.0076649 0.013712 0.084429" rpy="-0.090059 0 -0.054679" />
+    <parent link="left_palm_link" />
+    <child link="left_finger4_link1" />
+    <axis xyz="0 1 0" />
+    <limit lower="-0.1507" upper="1.5636" effort="0.6389" velocity="8.203" />
+  </joint>
+  <link name="left_finger4_link2">
+    <inertial>
+      <origin xyz="-0.00452747286008461 0.0002141653801618 0.0209110368688094" rpy="0 0 0" />
+      <mass value="0.033" />
+      <inertia ixx="6.31e-06" ixy="0.0" ixz="-1.6e-07" iyy="6.34e-06" iyz="0.0" izz="8.9e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger4_link2.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger4_link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_finger4_joint2" type="revolute">
+    <origin xyz="0.000238272023819444 0 0.00403409169489746" rpy="0 -0.0837758044893524 0" />
+    <parent link="left_finger4_link1" />
+    <child link="left_finger4_link2" />
+    <axis xyz="-1 0 0" />
+    <limit lower="-0.4101" upper="0.3014" effort="0.1832" velocity="8.115" />
+  </joint>
+  <link name="left_finger4_link3">
+    <inertial>
+      <origin xyz="-0.00112187686014802 -6.72060755895765e-05 0.015718842473584" rpy="0 0 0" />
+      <mass value="0.0165" />
+      <inertia ixx="1.47e-06" ixy="0.0" ixz="3e-08" iyy="1.44e-06" iyz="0.0" izz="4.5e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger4_link3.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger4_link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_finger4_joint3" type="revolute">
+    <origin xyz="-0.00312502629370909 0.000100282441161618 0.0436176874512648" rpy="0 0 0.000268623287696204" />
+    <parent link="left_finger4_link2" />
+    <child link="left_finger4_link3" />
+    <axis xyz="0 1 0" />
+    <limit lower="-0.4747" upper="1.5526" effort="0.2249" velocity="13.578" />
+  </joint>
+  <link name="left_finger4_link4">
+    <inertial>
+      <origin xyz="-0.000894364002322151 -8.29585181423027e-05 0.00535176963985756" rpy="0 0 0" />
+      <mass value="0.014" />
+      <inertia ixx="9.5e-07" ixy="0.0" ixz="1.4e-07" iyy="8.6e-07" iyz="-1e-08" izz="3e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger4_link4.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.529411764705882 0.549019607843137 0.549019607843137 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger4_link4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_finger4_joint4" type="revolute">
+    <origin xyz="0 0 0.0295000000000005" rpy="0 0 0" />
+    <parent link="left_finger4_link3" />
+    <child link="left_finger4_link4" />
+    <axis xyz="0 1 0" />
+    <limit lower="-0.4729" upper="1.5718" effort="0.2044" velocity="12.863" />
+  </joint>
+  <link name="left_finger4_tip_link">
+    <inertial>
+      <origin xyz="0.00076005480047972 -1.77864189068594e-05 -0.00585759702543506" rpy="0 0 0" />
+      <mass value="0.00318" />
+      <inertia ixx="2e-07" ixy="0.0" ixz="0.0" iyy="2.1e-07" iyz="0.0" izz="1.3e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger4_tip_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.529411764705882 0.549019607843137 0.549019607843137 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger4_tip_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_finger4_tip_fixed" type="fixed">
+    <origin xyz="-0.00199999999999928 -9.99999794204474E-05 0.0239466139617312" rpy="0 0 0" />
+    <parent link="left_finger4_link4" />
+    <child link="left_finger4_tip_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="left_finger5_link1">
+    <inertial>
+      <origin xyz="-0.00135329447496806 -2.35789230987327e-08 0.000193346570700414" rpy="0 0 0" />
+      <mass value="0.0032" />
+      <inertia ixx="8e-08" ixy="0.0" ixz="-3e-08" iyy="7e-08" iyz="0.0" izz="8e-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger5_link1.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger5_link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_finger5_joint1" type="revolute">
+    <origin xyz="-0.00226865105948153 0.0340011106647822 0.0742813381432918" rpy="-0.191650218499317 0 -0.175676455157885" />
+    <parent link="left_palm_link" />
+    <child link="left_finger5_link1" />
+    <axis xyz="0 1 0" />
+    <limit lower="-0.1578" upper="1.5632" effort="0.6441" velocity="8.203" />
+  </joint>
+  <link name="left_finger5_link2">
+    <inertial>
+      <origin xyz="-0.00453252784898839 4.36745136160599e-07 0.0209110443867004" rpy="0 0 0" />
+      <mass value="0.033" />
+      <inertia ixx="6.31e-06" ixy="0.0" ixz="-1.6e-07" iyy="6.34e-06" iyz="0.0" izz="8.9e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger5_link2.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger5_link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_finger5_joint2" type="revolute">
+    <origin xyz="0.000196015009673409 0 0.00403636545307588" rpy="0 -0.0942477800158131 0" />
+    <parent link="left_finger5_link1" />
+    <child link="left_finger5_link2" />
+    <axis xyz="-1 0 0" />
+    <limit lower="-0.4103" upper="0.2949" effort="0.1798" velocity="8.115" />
+  </joint>
+  <link name="left_finger5_link3">
+    <inertial>
+      <origin xyz="-0.00112187608632448 -6.71933271821773e-05 0.0157188470383108" rpy="0 0 0" />
+      <mass value="0.0165" />
+      <inertia ixx="1.47e-06" ixy="0.0" ixz="3e-08" iyy="1.44e-06" iyz="0.0" izz="4.5e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger5_link3.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger5_link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_finger5_joint3" type="revolute">
+    <origin xyz="-0.00312502637316564 0.000100282626826854 0.0436176864544762" rpy="0 0 0.000268612717748753" />
+    <parent link="left_finger5_link2" />
+    <child link="left_finger5_link3" />
+    <axis xyz="0 1 0" />
+    <limit lower="-0.4733" upper="1.5560" effort="0.2384" velocity="13.578" />
+  </joint>
+  <link name="left_finger5_link4">
+    <inertial>
+      <origin xyz="-0.000894376068463737 -8.29587184504807e-05 0.00535176561210726" rpy="0 0 0" />
+      <mass value="0.014" />
+      <inertia ixx="9.5e-07" ixy="0.0" ixz="1.4e-07" iyy="8.6e-07" iyz="-1e-08" izz="3e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger5_link4.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.529411764705882 0.549019607843137 0.549019607843137 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger5_link4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_finger5_joint4" type="revolute">
+    <origin xyz="0 0 0.0295000009963936" rpy="0 0 0" />
+    <parent link="left_finger5_link3" />
+    <child link="left_finger5_link4" />
+    <axis xyz="0 1 0" />
+    <limit lower="-0.4662" upper="1.5760" effort="0.1866" velocity="12.863" />
+  </joint>
+  <link name="left_finger5_tip_link">
+    <inertial>
+      <origin xyz="0.000743020095030855 4.15556515511589e-06 -0.00585759127452531" rpy="0 0 0" />
+      <mass value="0.00318" />
+      <inertia ixx="2e-07" ixy="0.0" ixz="0.0" iyy="2.1e-07" iyz="0.0" izz="1.3e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger5_tip_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.529411764705882 0.549019607843137 0.549019607843137 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/left/left_finger5_tip_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_finger5_tip_fixed" type="fixed">
+    <origin xyz="-0.00200000001120192 -9.99999794204162E-05 0.0239466139607956" rpy="0 0 0" />
+    <parent link="left_finger5_link4" />
+    <child link="left_finger5_tip_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <joint name="left_wuji_hand_mount" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="left_hand" />
+    <child link="left_palm_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="right_palm_link">
+    <inertial>
+      <origin xyz="-0.0029795 0.00045572 0.036654" rpy="0 0 0" />
+      <mass value="0.16914" />
+      <inertia ixx="0.00014" ixy="2.54e-06" ixz="6.91e-06" iyy="9.47e-05" iyz="-6.63e-06" izz="6e-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_palm_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_palm_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_finger1_link1">
+    <inertial>
+      <origin xyz="-0.0024628 -0.0014428 0.0077802" rpy="0 0 0" />
+      <mass value="0.0075" />
+      <inertia ixx="3.2e-07" ixy="-2e-08" ixz="0.0" iyy="3e-07" iyz="4e-08" izz="2.3e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger1_link1.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger1_link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_finger1_joint1" type="revolute">
+    <origin xyz="0.0085244 0.020575 0.028712" rpy="-1.328 -0.37161 -0.7307" />
+    <parent link="right_palm_link" />
+    <child link="right_finger1_link1" />
+    <axis xyz="-0 1 -0" />
+    <limit lower="0.0368" upper="1.6125" effort="0.4452" velocity="8.58701992" />
+  </joint>
+  <link name="right_finger1_link2">
+    <inertial>
+      <origin xyz="0.0011196 -1.2405e-05 0.015663" rpy="0 0 0" />
+      <mass value="0.0248" />
+      <inertia ixx="2.76e-06" ixy="2e-08" ixz="1e-08" iyy="2.81e-06" iyz="2e-08" izz="6.8e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger1_link2.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger1_link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_finger1_joint2" type="revolute">
+    <origin xyz="-0.0047549 -0.0060191 0.014132" rpy="-0.57428 -0.23677 1.8034" />
+    <parent link="right_finger1_link1" />
+    <child link="right_finger1_link2" />
+    <axis xyz="-0 -1 -0" />
+    <limit lower="-0.1576" upper="0.9312" effort="0.4259" velocity="11.10029404" />
+  </joint>
+  <link name="right_finger1_link3">
+    <inertial>
+      <origin xyz="-0.0011235 -1.579e-05 0.013056" rpy="0 0 0" />
+      <mass value="0.0165" />
+      <inertia ixx="1.46e-06" ixy="0.0" ixz="-2e-08" iyy="1.42e-06" iyz="0.0" izz="4.5e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger1_link3.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger1_link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_finger1_joint3" type="revolute">
+    <origin xyz="0.00018873 -0.0009916 0.034664" rpy="0.049049 0.017311 -1.9085" />
+    <parent link="right_finger1_link2" />
+    <child link="right_finger1_link3" />
+    <axis xyz="0 1 0" />
+    <limit lower="-0.4638" upper="1.5607" effort="0.1888" velocity="12.86307659" />
+  </joint>
+  <link name="right_finger1_link4">
+    <inertial>
+      <origin xyz="-0.0011922 0.00023589 0.0082118" rpy="0 0 0" />
+      <mass value="0.0165" />
+      <inertia ixx="1.18e-06" ixy="0.0" ixz="1.2e-07" iyy="1.25e-06" iyz="0.0" izz="5.1e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger1_link4.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger1_link4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_finger1_joint4" type="revolute">
+    <origin xyz="0 -0.00025 0.0295" rpy="0 0 0" />
+    <parent link="right_finger1_link3" />
+    <child link="right_finger1_link4" />
+    <axis xyz="0 1 0" />
+    <limit lower="-0.4829" upper="1.5451" effort="0.1468" velocity="13.57866158" />
+  </joint>
+  <link name="right_finger1_tip_link">
+    <inertial>
+      <origin xyz="-0.00018237 -3.9481e-06 -0.0041777" rpy="0 0 0" />
+      <mass value="0.0041" />
+      <inertia ixx="5.5e-07" ixy="0.0" ixz="2e-08" iyy="5.2e-07" iyz="0.0" izz="2.7e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger1_tip_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger1_tip_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_finger1_tip_fixed" type="fixed">
+    <origin xyz="-0.0011048 0.00023218 0.0283" rpy="0 0 0" />
+    <parent link="right_finger1_link4" />
+    <child link="right_finger1_tip_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="right_finger2_link1">
+    <inertial>
+      <origin xyz="-0.0013291 -3.2911e-08 0.00031987" rpy="0 0 0" />
+      <mass value="0.0032" />
+      <inertia ixx="8e-08" ixy="0.0" ixz="-3e-08" iyy="7e-08" iyz="0.0" izz="8e-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger2_link1.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger2_link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_finger2_joint1" type="revolute">
+    <origin xyz="-0.0058701 0.029434 0.091917" rpy="-0.11071 -0.071139 -0.21822" />
+    <parent link="right_palm_link" />
+    <child link="right_finger2_link1" />
+    <axis xyz="0 1 0" />
+    <limit lower="-0.1611" upper="1.5588" effort="0.6188" velocity="8.203047484" />
+  </joint>
+  <link name="right_finger2_link2">
+    <inertial>
+      <origin xyz="-0.0061577 -4.1189e-07 0.020911" rpy="0 0 0" />
+      <mass value="0.033" />
+      <inertia ixx="6.31e-06" ixy="0.0" ixz="-1.6e-07" iyy="6.34e-06" iyz="0.0" izz="8.9e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger2_link2.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger2_link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_finger2_joint2" type="revolute">
+    <origin xyz="0.0022 0 0.004" rpy="0 0 0" />
+    <parent link="right_finger2_link1" />
+    <child link="right_finger2_link2" />
+    <axis xyz="-1 0 0" />
+    <limit lower="-0.4044" upper="0.3054" effort="0.1822" velocity="8.115781022" />
+  </joint>
+  <link name="right_finger2_link3">
+    <inertial>
+      <origin xyz="-0.0011668 4.1873e-06 0.026893" rpy="0 0 0" />
+      <mass value="0.0165" />
+      <inertia ixx="1.47e-06" ixy="0.0" ixz="3e-08" iyy="1.44e-06" iyz="0.0" izz="4.5e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger2_link3.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger2_link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_finger2_joint3" type="revolute">
+    <origin xyz="-0.0047503 0 0.043618" rpy="0 0 -0.00026861" />
+    <parent link="right_finger2_link2" />
+    <child link="right_finger2_link3" />
+    <axis xyz="-0 1 -0" />
+    <limit lower="-0.4714" upper="1.5504" effort="0.2251" velocity="12.86307659" />
+  </joint>
+  <link name="right_finger2_link4">
+    <inertial>
+      <origin xyz="-0.00089438 1.7042e-05 0.0053518" rpy="0 0 0" />
+      <mass value="0.014" />
+      <inertia ixx="9.5e-07" ixy="0.0" ixz="1.4e-07" iyy="8.6e-07" iyz="-1e-08" izz="3e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger2_link4.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger2_link4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_finger2_joint4" type="revolute">
+    <origin xyz="0 0 0.0295" rpy="0 0 0" />
+    <parent link="right_finger2_link3" />
+    <child link="right_finger2_link4" />
+    <axis xyz="-0 1 -0" />
+    <limit lower="-0.4644" upper="1.5753" effort="0.2170" velocity="13.57866158" />
+  </joint>
+  <link name="right_finger2_tip_link">
+    <inertial>
+      <origin xyz="-0.00020111 3.8638e-06 -0.009311" rpy="0 0 0" />
+      <mass value="0.00318" />
+      <inertia ixx="2e-07" ixy="0.0" ixz="0.0" iyy="2.1e-07" iyz="0.0" izz="1.3e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger2_tip_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger2_tip_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_finger2_tip_fixed" type="fixed">
+    <origin xyz="-0.00105 0 0.0274" rpy="0 0 0" />
+    <parent link="right_finger2_link4" />
+    <child link="right_finger2_tip_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="right_finger3_link1">
+    <inertial>
+      <origin xyz="-0.0013291 3.4987e-09 0.00031994" rpy="0 0 0" />
+      <mass value="0.0032" />
+      <inertia ixx="8e-08" ixy="0.0" ixz="-3e-08" iyy="7e-08" iyz="0.0" izz="8e-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger3_link1.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger3_link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_finger3_joint1" type="revolute">
+    <origin xyz="-0.01046 0.0074615 0.089544" rpy="-5.0886E-05 -0.087266 0.00058387" />
+    <parent link="right_palm_link" />
+    <child link="right_finger3_link1" />
+    <axis xyz="0 1 0" />
+    <limit lower="-0.1719" upper="1.5496" effort="0.6494" velocity="8.203047484" />
+  </joint>
+  <link name="right_finger3_link2">
+    <inertial>
+      <origin xyz="-0.0061576 -4.1651e-07 0.020911" rpy="0 0 0" />
+      <mass value="0.033" />
+      <inertia ixx="6.31e-06" ixy="0.0" ixz="-1.6e-07" iyy="6.34e-06" iyz="0.0" izz="8.9e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger3_link2.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger3_link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_finger3_joint2" type="revolute">
+    <origin xyz="0.0022 0 0.004" rpy="0 0 0" />
+    <parent link="right_finger3_link1" />
+    <child link="right_finger3_link2" />
+    <axis xyz="-1 0 0" />
+    <limit lower="-0.4014" upper="0.2996" effort="0.1827" velocity="8.115781022" />
+  </joint>
+  <link name="right_finger3_link3">
+    <inertial>
+      <origin xyz="-0.0011214 4.331e-06 0.015763" rpy="0 0 0" />
+      <mass value="0.0165" />
+      <inertia ixx="1.47e-06" ixy="0.0" ixz="3e-08" iyy="1.44e-06" iyz="0.0" izz="4.5e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger3_link3.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger3_link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_finger3_joint3" type="revolute">
+    <origin xyz="-0.00475 0 0.043618" rpy="0 0 -0.00026861" />
+    <parent link="right_finger3_link2" />
+    <child link="right_finger3_link3" />
+    <axis xyz="-0 1 -0" />
+    <limit lower="-0.4632" upper="1.5613" effort="0.2078" velocity="12.86307659" />
+  </joint>
+  <link name="right_finger3_link4">
+    <inertial>
+      <origin xyz="-0.00089436 1.7049e-05 0.0053518" rpy="0 0 0" />
+      <mass value="0.014" />
+      <inertia ixx="9.5e-07" ixy="0.0" ixz="1.4e-07" iyy="8.6e-07" iyz="-1e-08" izz="3e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger3_link4.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger3_link4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_finger3_joint4" type="revolute">
+    <origin xyz="0 0 0.0295" rpy="0 0 0" />
+    <parent link="right_finger3_link3" />
+    <child link="right_finger3_link4" />
+    <axis xyz="-0 1 -0" />
+    <limit lower="-0.4697" upper="1.5702" effort="0.2018" velocity="13.57866158" />
+  </joint>
+  <link name="right_finger3_tip_link">
+    <inertial>
+      <origin xyz="-0.00020328 1.4971e-06 -0.008611" rpy="0 0 0" />
+      <mass value="0.00318" />
+      <inertia ixx="2e-07" ixy="0.0" ixz="0.0" iyy="2.1e-07" iyz="0.0" izz="1.3e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger3_tip_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger3_tip_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_finger3_tip_fixed" type="fixed">
+    <origin xyz="-0.0010491 0 0.0267" rpy="0 0 0" />
+    <parent link="right_finger3_link4" />
+    <child link="right_finger3_tip_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="right_finger4_link1">
+    <inertial>
+      <origin xyz="-0.0013291 1.0048e-08 0.00031995" rpy="0 0 0" />
+      <mass value="0.0032" />
+      <inertia ixx="8e-08" ixy="0.0" ixz="-3e-08" iyy="7e-08" iyz="0.0" izz="8e-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger4_link1.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger4_link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_finger4_joint1" type="revolute">
+    <origin xyz="-0.0076649 -0.013712 0.084429" rpy="0.090375 -0.083436 0.047127" />
+    <parent link="right_palm_link" />
+    <child link="right_finger4_link1" />
+    <axis xyz="-0 1 -0" />
+    <limit lower="-0.1601" upper="1.5534" effort="0.6389" velocity="8.203047484" />
+  </joint>
+  <link name="right_finger4_link2">
+    <inertial>
+      <origin xyz="-0.0061576 -4.1601e-07 0.020911" rpy="0 0 0" />
+      <mass value="0.033" />
+      <inertia ixx="6.31e-06" ixy="0.0" ixz="-1.6e-07" iyy="6.34e-06" iyz="0.0" izz="8.9e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger4_link2.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger4_link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_finger4_joint2" type="revolute">
+    <origin xyz="0.0022 0 0.004" rpy="0 0 0" />
+    <parent link="right_finger4_link1" />
+    <child link="right_finger4_link2" />
+    <axis xyz="-1 0 0" />
+    <limit lower="-0.4134" upper="0.3161" effort="0.1832" velocity="8.115781022" />
+  </joint>
+  <link name="right_finger4_link3">
+    <inertial>
+      <origin xyz="-0.0011214 4.3494e-06 0.015763" rpy="0 0 0" />
+      <mass value="0.0165" />
+      <inertia ixx="1.47e-06" ixy="0.0" ixz="3e-08" iyy="1.44e-06" iyz="0.0" izz="4.5e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger4_link3.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger4_link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_finger4_joint3" type="revolute">
+    <origin xyz="-0.00475 0 0.043618" rpy="0 0 -0.00026861" />
+    <parent link="right_finger4_link2" />
+    <child link="right_finger4_link3" />
+    <axis xyz="-0 1 -0" />
+    <limit lower="-0.4782" upper="1.5448" effort="0.2249" velocity="12.86307659" />
+  </joint>
+  <link name="right_finger4_link4">
+    <inertial>
+      <origin xyz="-0.00089436 1.7058e-05 0.0053518" rpy="0 0 0" />
+      <mass value="0.014" />
+      <inertia ixx="9.5e-07" ixy="0.0" ixz="1.4e-07" iyy="8.6e-07" iyz="-1e-08" izz="3e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger4_link4.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger4_link4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_finger4_joint4" type="revolute">
+    <origin xyz="0 0 0.0295" rpy="0 0 0" />
+    <parent link="right_finger4_link3" />
+    <child link="right_finger4_link4" />
+    <axis xyz="-0 1 -0" />
+    <limit lower="-0.4825" upper="1.5550" effort="0.2044" velocity="13.57866158" />
+  </joint>
+  <link name="right_finger4_tip_link">
+    <inertial>
+      <origin xyz="-0.00020322 1.528e-06 -0.0086106" rpy="0 0 0" />
+      <mass value="0.00318" />
+      <inertia ixx="2e-07" ixy="0.0" ixz="0.0" iyy="2.1e-07" iyz="0.0" izz="1.3e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger4_tip_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger4_tip_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_finger4_tip_fixed" type="fixed">
+    <origin xyz="-0.0010528 0 0.0267" rpy="0 0 0" />
+    <parent link="right_finger4_link4" />
+    <child link="right_finger4_tip_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="right_finger5_link1">
+    <inertial>
+      <origin xyz="-0.0013291 1.7235e-08 0.00031997" rpy="0 0 0" />
+      <mass value="0.0032" />
+      <inertia ixx="8e-08" ixy="0.0" ixz="-3e-08" iyy="7e-08" iyz="0.0" izz="8e-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger5_link1.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger5_link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_finger5_joint1" type="revolute">
+    <origin xyz="-0.0022687 -0.034001 0.074281" rpy="0.19248 -0.092517 0.15767" />
+    <parent link="right_palm_link" />
+    <child link="right_finger5_link1" />
+    <axis xyz="0 1 0" />
+    <limit lower="-0.1674" upper="1.5539" effort="0.6441" velocity="8.203047484" />
+  </joint>
+  <link name="right_finger5_link2">
+    <inertial>
+      <origin xyz="-0.0061576 -4.1475e-07 0.020911" rpy="0 0 0" />
+      <mass value="0.033" />
+      <inertia ixx="6.31e-06" ixy="0.0" ixz="-1.6e-07" iyy="6.34e-06" iyz="0.0" izz="8.9e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger5_link2.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger5_link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_finger5_joint2" type="revolute">
+    <origin xyz="0.0022 0 0.004" rpy="0 0 0" />
+    <parent link="right_finger5_link1" />
+    <child link="right_finger5_link2" />
+    <axis xyz="-1 0 0" />
+    <limit lower="-0.4203" upper="0.2931" effort="0.1798" velocity="8.115781022" />
+  </joint>
+  <link name="right_finger5_link3">
+    <inertial>
+      <origin xyz="-0.0011214 4.3703e-06 0.015763" rpy="0 0 0" />
+      <mass value="0.0165" />
+      <inertia ixx="1.47e-06" ixy="0.0" ixz="3e-08" iyy="1.44e-06" iyz="0.0" izz="4.5e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger5_link3.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger5_link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_finger5_joint3" type="revolute">
+    <origin xyz="-0.00475 0 0.043618" rpy="0 0 -0.00026861" />
+    <parent link="right_finger5_link2" />
+    <child link="right_finger5_link3" />
+    <axis xyz="-0 1 -0" />
+    <limit lower="-0.4804" upper="1.5420" effort="0.2384" velocity="12.86307659" />
+  </joint>
+  <link name="right_finger5_link4">
+    <inertial>
+      <origin xyz="-0.00089437 1.7063e-05 0.0053518" rpy="0 0 0" />
+      <mass value="0.014" />
+      <inertia ixx="9.5e-07" ixy="0.0" ixz="1.4e-07" iyy="8.6e-07" iyz="-1e-08" izz="3e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger5_link4.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger5_link4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_finger5_joint4" type="revolute">
+    <origin xyz="0 0 0.0295" rpy="0 0 0" />
+    <parent link="right_finger5_link3" />
+    <child link="right_finger5_link4" />
+    <axis xyz="-0 1 -0" />
+    <limit lower="-0.4705" upper="1.5709" effort="0.1866" velocity="13.57866158" />
+  </joint>
+  <link name="right_finger5_tip_link">
+    <inertial>
+      <origin xyz="-0.00020332 1.4872e-06 -0.0086111" rpy="0 0 0" />
+      <mass value="0.00318" />
+      <inertia ixx="2e-07" ixy="0.0" ixz="0.0" iyy="2.1e-07" iyz="0.0" izz="1.3e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger5_tip_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://primeu_description/wuji-hand-description/meshes/right/right_finger5_tip_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_finger5_tip_fixed" type="fixed">
+    <origin xyz="-0.0010446 1.1308E-05 0.0267" rpy="0 0 0" />
+    <parent link="right_finger5_link4" />
+    <child link="right_finger5_tip_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <joint name="right_wuji_hand_mount" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="right_hand" />
+    <child link="right_palm_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+</robot>
